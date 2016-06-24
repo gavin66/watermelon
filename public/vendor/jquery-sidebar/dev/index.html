@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <title>主页</title>
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../dist/jQuery-Sidebar.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="jqsb-container">
+        <header>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#blog-navbar" aria-expanded="false">
+                            <span class="sr-only">导航条开关</span>
+                            <span class="icon-bar"></span> 
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand jqsb-toggle-left" href="#">
+                            <span class="glyphicon glyphicon-menu-hamburger"></span>
+                        </a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="blog-navbar">
+                        <form class="navbar-form navbar-left" role="search">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search">
+                            </div>
+                        </form>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">下拉 1<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">链接1</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">链接2</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">链接3</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">下拉2<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">链接1</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">链接2</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">链接3</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#" class="jqsb-toggle-left">链接左</a></li>
+                            <li><a href="#" class="jqsb-toggle-right">链接右</a></li>
+                            <li><a href="#" class="sb-toggle-right">设置</a></li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </header>
+        <div class="main">
+        	<button type="button" class="btn btn-primary" id="bs-toggle">右开关</button>
+        	<button type="button" class="btn btn-primary" id="bs-toggle-left">左开关</button>
+        </div>
+        haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>
+        haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>
+        haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>
+        haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>
+        haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>
+        haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>
+        haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>
+        haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>
+        haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>
+        haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>
+        haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>haha<br>
+        <footer></footer>
+    </div>
+
+    <div class="jqsb-sidebar jqsb-left">
+        sjdfisd
+    </div>
+    
+    <div class="jqsb-sidebar jqsb-right">
+        <div class="jqsb-right-sm"><p class="text-warning">小Width</p></div>
+        <div class="jqsb-right-bg"><p class="text-warning">这里必须是大的Width</p></div>
+        <!--这里是测试-->
+    </div>
+
+    <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="../dist/jQuery-Sidebar.min.js"></script>
+    <script>
+
+        $(function(){
+			var jqsb = new $.jqSidebar({
+                leftMode: 'sidebar-offset',
+                rightMode: 'sidebar-offset',
+                sideActive: 'right',
+                autoClose:true
+			});
+			
+			
+			$('#bs-toggle').on('click',function(event){
+				jqsb.toggle('right');
+//				jqsb.close('right');
+//				jqsb.open('left');
+			});
+
+            $('#bs-toggle-left').on('click',function(){
+                jqsb.toggle('left');
+            });
+
+        });
+    
+    </script>
+</body>
+</html>

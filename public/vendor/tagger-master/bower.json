@@ -1,0 +1,26 @@
+{
+  "name": "bootstrap-tag",
+  "homepage": "https://github.com/gavin66/bootstrap-tag",
+  "authors": [
+    "Gavin <tianyu_0723@hotmail.com>"
+  ],
+  "description": "基于jquery和bootstrap的标签插件",
+  "keywords": [
+    "jquery",
+    "bootstrap",
+    "tag"
+  ],
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.4",
+    "bootstrap": "^3.3.6"
+  }
+}

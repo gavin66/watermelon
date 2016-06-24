@@ -1,0 +1,69 @@
+/**
+ *  jQuery-Sidebar.css
+ *  Version: 1.0.0
+ *  http://github.com/gavin66/jquery-sidebar
+ */
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+html, body, .jqsb-container, .jqsb-sidebar {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.jqsb-container, .jqsb-sidebar {
+  -webkit-transform: translate(0);
+  -moz-transform: translate(0);
+  transform: translate(0);
+  -webkit-transition: -webkit-transform 400ms ease;
+  -moz-transition: -moz-transform 400ms ease;
+  transition: transform 400ms ease;
+  -webkit-transition-property: -webkit-transform, left, right;
+  -moz-transition-property: -moz-transform, left, right;
+  transition-property: transform, left, right;
+}
+
+.jqsb-container {
+  position: relative;
+  z-index: 1;
+}
+
+.jqsb-sidebar {
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  z-index: 0;
+  background-color: #333333;
+  color: #f2f2f2;
+}
+
+.jqsb-left {
+  left: 0;
+}
+
+.jqsb-right {
+  right: 0;
+}
+
+.jqsb-left .jqsb-left-sm {
+  float: left;
+}
+
+.jqsb-right .jqsb-right-sm {
+  float: right;
+}
+
+.jqsb-left .jqsb-left-bg, .jqsb-right .jqsb-right-bg {
+  clear: both;
+}
+
+.sidebar-mode {
+  z-index: 9999;
+}

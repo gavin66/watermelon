@@ -1,0 +1,320 @@
+/*------------------------------------*\
+    多说分享
+\*------------------------------------*/
+.theme-default .ds-share-custom{
+    margin-bottom: 40px;
+    padding: 20px 0;
+}
+.theme-default .share-to-c{
+    text-align: center;
+    position: relative;
+    margin-bottom: 10px;
+}
+.theme-default .share-to-c .line{
+    height: 1px;
+    width: 100%;
+    background-color: #FFEC94;
+    display: block;
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+}
+.theme-default .share-to-c .text{
+    background-color: white;
+    padding: 0 6px;
+    font-size: 18px;
+}
+.theme-default .share-button-c{
+    text-align: center;
+}
+.theme-default .share-icon#ds-reset{
+    display: inline-block;
+    height: 32px;
+    width: 32px;
+    line-height: 32px;
+    font-size: 20px;
+    margin: 0 1px;
+    text-align: center;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid #eee;
+    border-radius: 50%;
+    transition: background 0.6s ease-out 0s;
+}
+.theme-default .share-icon.share-icon-weibo#ds-reset{
+    color: #E6162D;
+    border-color: #E6162D;
+}
+.theme-default .share-icon.share-icon-weibo#ds-reset:hover,.theme-default .share-icon .share-icon-weibo#ds-reset:active{
+    color: white;
+    background-color: #E6162D;
+}
+.theme-default .share-icon.share-icon-tweibo#ds-reset{
+    color: #56b6e7;
+    font-weight: 600;
+    border-color: #56b6e7;
+}
+.theme-default .share-icon.share-icon-tweibo#ds-reset:hover,.theme-default .share-icon .share-icon-tweibo#ds-reset:active{
+    color: white;
+    background-color: #56b6e7;
+}
+.theme-default .share-icon.share-icon-qq#ds-reset{
+    font-size: 18px;
+    color: #56b6e7;
+    border-color: #56b6e7;
+}
+.theme-default .share-icon.share-icon-qq#ds-reset:hover,.theme-default .share-icon .share-icon-qq#ds-reset:active{
+    color: white;
+    background-color: #56b6e7;
+}
+.theme-default .share-icon.share-icon-weixin#ds-reset{
+    font-size: 18px;
+    color: #7bc549;
+    border-color: #7bc549;
+}
+.theme-default .share-icon.share-icon-weixin#ds-reset:hover,.theme-default .share-icon .share-icon-weixin#ds-reset:active{
+    color: white;
+    background-color: #7bc549;
+}
+.theme-default .share-icon.share-icon-facebook#ds-reset{
+    color: #44619D;
+    border-color: #44619D;
+}
+.theme-default .share-icon.share-icon-facebook#ds-reset:hover,.theme-default .share-icon .share-icon-facebook#ds-reset:active{
+    color: white;
+    background-color: #44619D;
+}
+.theme-default .share-icon.share-icon-twitter#ds-reset{
+    color: #55acee;
+    border-color: #55acee;
+}
+.theme-default .share-icon.share-icon-twitter#ds-reset:hover,.theme-default .share-icon .share-icon-twitter#ds-reset:active{
+    color: white;
+    background-color: #55acee;
+}
+.theme-default .share-icon.share-icon-linkedin#ds-reset{
+    color: #0077B5;
+    border-color: #0077B5;
+}
+.theme-default .share-icon.share-icon-linkedin#ds-reset:hover,.theme-default .share-icon .share-icon-linkedin#ds-reset:active{
+    color: white;
+    background-color: #0077B5;
+}
+.theme-default .share-icon.share-icon-renren#ds-reset{
+    color: #207BC5;
+    border-color: #207BC5;
+}
+.theme-default .share-icon.share-icon-renren#ds-reset:hover,.theme-default .share-icon .share-icon-renren#ds-reset:active{
+    color: white;
+    background-color: #207BC5;
+}
+.theme-default .share-icon.share-icon-google-plus#ds-reset{
+    color: #207BC5;
+    border-color: #207BC5;
+}
+.theme-default .share-icon.share-icon-google-plus#ds-reset:hover,.theme-default .share-icon .share-icon-google-plus#ds-reset:active{
+    color: white;
+    background-color: #207BC5;
+}
+
+.theme-default .share-icon.share-icon-douban#ds-reset{
+    color: #2E963D;
+    border-color: #2E963D;
+}
+.theme-default .share-icon.share-icon-douban#ds-reset:hover,.theme-default .share-icon .share-icon-douban#ds-reset:active{
+    color: white;
+    background-color: #2E963D;
+}
+.theme-default .share-icon.share-icon-baidu#ds-reset{
+  color: #2319DC;
+  border-color: #2319DC;
+}
+.theme-default .share-icon.share-icon-baidu#ds-reset:hover,.theme-default .share-icon .share-icon-baidu#ds-reset:active{
+    color: white;
+    background-color: #2319DC;
+}
+.theme-default .share-icon.share-icon-youdao#ds-reset{
+    color: #2D8AFF;
+    border-color: #2D8AFF;
+}
+.theme-default .share-icon.share-icon-youdao#ds-reset:hover,.theme-default .share-icon .share-icon-youdao#ds-reset:active{
+    color: white;
+    background-color: #2D8AFF;
+}
+
+
+/*------------------------------------*\
+    多说评论
+\*------------------------------------*/
+.theme-default #ds-reset .ds-avatar img{
+  box-shadow: none;
+}
+.theme-default #ds-thread{
+    background-color: #fff;
+    padding: 20px;
+}
+.theme-default #ds-thread #ds-reset .ds-header{
+    background:none;
+    background-color: #f6f8fa;
+}
+.theme-default #ds-thread #ds-reset li.ds-tab a.ds-current{
+    border: none;
+    background: #f6f8fa;
+    color: #60676d;
+}
+.theme-default #ds-thread #ds-reset li.ds-tab a.ds-current:hover{
+    background-color: #e9f0f7;
+    color: #60676d;
+}
+
+/* 社交帐号登录 按钮样式 */
+.theme-default #ds-thread #ds-reset .ds-login-buttons p {
+    color:#999;
+    line-height:36px;
+}
+.theme-default #ds-thread #ds-reset .ds-login-buttons .ds-service-list li {
+    height:28px;
+}
+.theme-default #ds-thread #ds-reset .ds-service-list a {
+    background:none;
+    padding:5px;
+    border:1px solid;
+    border-radius:3px;
+    text-align:center;
+}
+.theme-default #ds-thread #ds-reset .ds-service-list a:hover {
+    color:#fff;
+    background:#666;
+}
+.theme-default #ds-thread #ds-reset .ds-service-list .ds-weibo {
+    color:#E6162D;
+    border-color:#E6162D;
+}
+.theme-default #ds-thread #ds-reset .ds-service-list .ds-weibo:hover {
+    background:#E6162D;
+}
+.theme-default #ds-thread #ds-reset .ds-service-list .ds-qq {
+    color:#56b6e7;
+    border-color:#56b6e7;
+}
+.theme-default #ds-thread #ds-reset .ds-service-list .ds-qq:hover {
+    background:#56b6e7;
+}
+.theme-default #ds-thread #ds-reset .ds-service-list .ds-renren {
+    color:#207BC5;
+    border-color:#207BC5;
+}
+.theme-default #ds-thread #ds-reset .ds-service-list .ds-renren:hover {
+    background:#207BC5;
+}
+.theme-default #ds-thread #ds-reset .ds-service-list .ds-douban {
+    color:#2E963D;
+    border-color:#2E963D;
+}
+.theme-default #ds-thread #ds-reset .ds-service-list .ds-douban:hover {
+    background:#2E963D;
+}
+.theme-default #ds-thread #ds-reset .ds-service-list .ds-kaixin {
+    color:#FEDC56;
+    border-color:#FEDC56;
+}
+.theme-default #ds-thread #ds-reset .ds-service-list .ds-kaixin:hover {
+    background:#FEDC56;
+}
+.theme-default #ds-thread #ds-reset .ds-service-list .ds-baidu {
+    color:#2319DC;
+    border-color:#2319DC;
+}
+.theme-default #ds-thread #ds-reset .ds-service-list .ds-baidu:hover {
+    background:#2319DC;
+}
+.theme-default #ds-thread #ds-reset .ds-service-list .ds-google {
+    color:#4387fd;
+    border-color:#4387fd;
+}
+.theme-default #ds-thread #ds-reset .ds-service-list .ds-google:hover {
+    background:#4387fd;
+}
+.theme-default #ds-thread #ds-reset .ds-service-list .ds-weixin {
+    color:#7bc549;
+    border-color:#7bc549;
+}
+.theme-default #ds-thread #ds-reset .ds-service-list .ds-weixin:hover {
+    background:#7bc549;
+}
+.theme-default #ds-thread #ds-reset .ds-service-list .ds-more-services {
+    border:none;
+}
+.theme-default #ds-thread #ds-reset .ds-service-list .ds-more-services:hover {
+    background:none;
+}
+
+/* 发布框样式 */
+.theme-default #ds-thread #ds-reset .ds-replybox .ds-textarea-wrapper{
+    border-color: #c7d4e1;
+    background: none;
+}
+.theme-default #ds-thread #ds-reset .ds-post-toolbar{
+    box-sizing: border-box;
+    border: 1px solid #c7d4e1;
+    background: #f6f8fa;
+}
+.theme-default #ds-thread #ds-reset .ds-post-options{
+    height: 40px;
+    border: none;
+    background: none;
+}
+.theme-default #ds-thread #ds-reset .ds-toolbar-buttons{
+    top: 11px;
+}
+.theme-default #ds-thread #ds-reset .ds-sync{
+    top: 5px;
+}
+.theme-default #ds-thread #ds-reset .ds-post-button{
+    top: 4px;
+    right: 5px;
+    width: 90px;
+    height: 30px;
+    border: 1px solid #c5ced7;
+    border-radius: 3px;
+    background-image: linear-gradient(#fbfbfc,#f5f7f9);
+    color: #60676d;
+}
+.theme-default #ds-thread #ds-reset .ds-replybox{
+    margin-bottom: 30px;
+}
+
+
+/*------------------------------------*\
+    图标字体
+\*------------------------------------*/
+
+/* 使用本地字体 */
+/*@font-face {font-family: 'iconfont';*/
+    /*src: url('/font/iconfont/iconfont.eot'); !* IE9*!*/
+    /*src: url('/font/iconfont/iconfont.eot?#iefix') format('embedded-opentype'), !* IE6-IE8 *!*/
+    /*url('/font/iconfont/iconfont.woff') format('woff'), !* chrome、firefox *!*/
+    /*url('/font/iconfont/iconfont.ttf') format('truetype'), !* chrome、firefox、opera、Safari, Android, iOS 4.2+*!*/
+    /*url('/font/iconfont/iconfont.svg#iconfont') format('svg'); !* iOS 4.1- *!*/
+/*}*/
+
+/* 使用在线字体 */
+@font-face {
+    font-family: 'iconfont';
+    src: url('//at.alicdn.com/t/font_1459992186_8467655.eot'); /* IE9*/
+    src: url('//at.alicdn.com/t/font_1459992186_8467655.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('//at.alicdn.com/t/font_1459992186_8467655.woff') format('woff'), /* chrome、firefox */
+    url('//at.alicdn.com/t/font_1459992186_8467655.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('//at.alicdn.com/t/font_1459992186_8467655.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont{
+    font-family:"iconfont" !important;
+    font-size:16px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+.icon-douban:before{ content: "\e600"; }
+.icon-baidu:before{ content: "\e602"; }
+.icon-youdao:before{ content: "\e603"; } /* 有道云笔记 */
