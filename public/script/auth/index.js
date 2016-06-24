@@ -30,7 +30,7 @@ seajs.use(deps, function() {
     // 登录表单验证与提交
     $('#btn-sign-in').on('click',function(){
         $.ajax({
-            url:'/auth/signIn',
+            url:'/auth/login',
             method:'post',
             cache:false,
             data:$('#form-sign-in').serializeJson(),
@@ -48,7 +48,7 @@ seajs.use(deps, function() {
     // 注册表单验证与提交
     $('#btn-sign-up').on('click',function(){
         $.ajax({
-            url:'/auth/signUp',
+            url:'/auth/register',
             method:'post',
             cache:false,
             data:$('#form-sign-up').serializeJson(),

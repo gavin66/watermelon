@@ -35,7 +35,7 @@ class AuthController extends Controller
 //    protected $redirectTo = '/';
     protected $redirectTo = '/backend';
 
-    protected $guard = 'administrator'; // 需要用到的 guard
+    protected $guard = 'user'; // 需要用到的 guard
     protected $loginView = 'auth.index'; // admin.login 登录视图
     protected $registerView = 'auth.register'; // admin.register 注册视图
     protected $username = 'email'; // 需要验证的字段
@@ -62,7 +62,8 @@ class AuthController extends Controller
         return Validator::make($data, [
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6|confirmed',
+            'password' => 'required|min:6',
+//            'password' => 'required|min:6|confirmed',
             'captcha' => 'required|captcha',
         ]);
     }
@@ -153,6 +154,27 @@ class AuthController extends Controller
         if(empty($user)) {$re_array['email'] = '此邮箱未注册'; return $re_array;}
 
         $re_array['password']  = '密码输入有误'; return $re_array;
+    }
+
+    /**
+     * 重写注册请求
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function register(Request $request) {
+        $validator = $this->validator($request->all());
+
+        if ($validator->fails()) {
+            $this->throwValidationException(
+                $request, $validator
+            );
+        }
+
+        Auth::guard($this->getGuard())->login($this->create($request->all()));
+
+        if($request->ajax()) return response()->json(['redirectPath'=>$this->redirectPath()],200);
+        else return redirect($this->redirectPath());
     }
 
 }

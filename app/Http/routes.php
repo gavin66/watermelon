@@ -34,52 +34,80 @@
 
 
 // 测试使用
-Route::resource('category', 'Backend\CategoryController');
-
-
-Route::get('phpinfo', function () {
-    phpinfo();
-});
-
-//Route::get('test','TestController@index');
-//Route::get('test','Frontend\FrontendController@test');
-//Route::get('test', function () {
-//    echo 'Hello';
+//Route::resource('category', 'Backend\CategoryController');
+//Route::get('phpinfo', function () {
+//    phpinfo();
+//});
+//Route::get('httpTest', function () {
+//    $client = new \GuzzleHttp\Client([
+//        'base_uri' => 'http://httpbin.org',
+//        'timeout' => 2.0,
+//    ]);
+//    $response = $client->request('GET', 'get', ['query' => ['foo' => 'bar'],'body'=>'Gavin']);
+//
+//    echo $response->getBody();
+//
+//});
+//
+//Route::get('duoshuo', function () {
+//    $duoshuo = new \App\Services\DuoShuo();
+//    echo $duoshuo->getHotArticles();
+//});
+//
+//
+//Route::get('redisTest', function () {
+//    $v = RedisGo::get('hello');
+//
+//    return $v;
+//});
+//Route::get('orm', function () {
+//    $data = \App\Model\Article::skip(0)->take(10)->get();
+//
+//    dd($data);
+//});
+//
+//Route::get('table-edit', function () {
+//    Schema::table('articles', function ($table) {
+//        $table->string('outline');
+//    });
 //});
 
-Route::get('httpTest', function () {
-    $client = new \GuzzleHttp\Client([
-        'base_uri' => 'http://httpbin.org',
-        'timeout' => 2.0,
-    ]);
-    $response = $client->request('GET', 'get', ['query' => ['foo' => 'bar'],'body'=>'Gavin']);
+// 坑爹啊  session
+//Route::get('captcha/{config?}', '\Mews\Captcha\CaptchaController@getCaptcha')->middleware(['web']);
 
-    echo $response->getBody();
+//Route::group(['middleware' => ['web']], function () {
+//    Route::any('captcha-test', function(){
+//        if (Request::getMethod() == 'POST')
+//        {
+//            $rules = ['captcha' => 'required|captcha'];
+//            $validator = Validator::make(Request::all(), $rules);
+////        captcha_check('');
+//            if ($validator->fails())
+//            {
+//                echo '<p style="color: #ff0000;">Incorrect!'.Request::input('captcha').'</p>';
+//            }
+//            else
+//            {
+//                echo '<p style="color: #00ff30;">Matched :)</p>';
+//            }
+//
+//            foreach($validator->errors() as $error){
+//                echo $error.'|!!!';
+//            }
+//        }
+//
+//
+//
+//        $form = '<form method="post" action="captcha-test">';
+//        $form .= '<input type="hidden" name="_token" value="' . csrf_token() . '">';
+//        $form .= '<p>' . captcha_img() . '</p>';
+//        $form .= '<p><input type="text" name="captcha"></p>';
+//        $form .= '<p><button type="submit" name="check">Check</button></p>';
+//        $form .= '</form>';
+//        return $form;
+//    });
+//});
 
-});
-
-Route::get('duoshuo', function () {
-    $duoshuo = new \App\Services\DuoShuo();
-    echo $duoshuo->getHotArticles();
-});
-
-
-Route::get('redisTest', function () {
-    $v = RedisGo::get('hello');
-
-    return $v;
-});
-Route::get('orm', function () {
-    $data = \App\Model\Article::skip(0)->take(10)->get();
-
-    dd($data);
-});
-
-Route::get('table-edit', function () {
-    Schema::table('articles', function ($table) {
-        $table->string('outline');
-    });
-});
 
 
 /**
@@ -124,7 +152,7 @@ Route::group(['namespace' => 'Auth'], function () {
         Route::get('logout', 'AuthController@logout');
 
         // 注册
-        Route::post('signUp', 'AuthController@postRegister');
+        Route::post('register', 'AuthController@register');
     });
 
     Route::group(['prefix' => 'password'], function () {
@@ -142,6 +170,8 @@ Route::group(['namespace' => 'Auth'], function () {
 /**
  * 后台部分
  */
+//\Redis::set('test',$this->redirectPath());
+
 Route::group(['namespace' => 'Backend', 'middleware' => 'auth'], function () {
     Route::group(['prefix' => 'backend'], function () {
 
