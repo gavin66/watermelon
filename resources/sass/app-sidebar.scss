@@ -1,0 +1,176 @@
+// 基础颜色:黑色
+$base_color_black: #293038;
+// 基础颜色:灰色
+$base_color_gray: #F7F8F9;
+// 基础颜色:橙色
+$base_color_orange: #E77E23;
+
+body{
+  //padding-top: 70px;
+  background-color: darken($base_color_gray,3%);
+}
+a:hover{
+  text-decoration: none;
+}
+::selection{
+  background: $base_color_black;
+  color: #fff;
+}
+
+/*侧边栏控制显示隐藏的按钮*/
+.sidebar-toggle{
+  position: fixed;
+  z-index: 24;
+  bottom: 40px;
+  right: 50px;
+  color: $base_color_black;
+}
+
+/*返回顶层按钮*/
+.back-to-top{
+  position: fixed;
+  z-index: 24;
+  bottom: 20px;
+  right: 50px;
+  color: $base_color_black;
+}
+
+/*------------------------------------*\
+    导航栏搜索框
+\*------------------------------------*/
+#navbar-searchicon{
+  position: absolute;
+  z-index: 3;
+  top: 9px;
+  left: 5px;
+  font-size: 1.6rem;
+  color: #9d9d9d;
+  &:hover{
+    color: #15BDEA;
+    cursor: pointer;
+  }
+}
+#navbar-search{
+  padding: 0 5px 0 26px;
+  width: 16px;
+  background-color: #222222;
+  border: none;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  transition-duration:400ms;
+  transition-property:width,background;
+}
+.navbar-search{
+  width: 200px !important;
+  background-color: white !important;
+}
+
+/*------------------------------------*\
+    文章样式
+\*------------------------------------*/
+.bulletin{
+  background-color: #fff;
+  padding: 1.5rem;
+  border-left: solid .8rem darken($base_color_gray,10%);
+  border-radius: 4px;
+  margin-bottom: 6px;
+  transition: border .2s ease-in;
+  &:hover{
+    border-color: $base_color_orange;
+  }
+  .bulletin-body .description{
+    text-align: justify;
+  }
+}
+
+/*------------------------------------*\
+    分页样式
+\*------------------------------------*/
+.paging{
+  text-align: center;
+  background-color: white;
+  border-radius: 4px;
+  font-size: 1.8rem;
+  a,.paging span.page-number{
+    display: inline-block;
+    padding: 1rem 2rem;
+  }
+  a:hover{
+    border-radius: .5rem;
+    background-color: darken($base_color_gray,10%);
+    color: $base_color_orange;
+  }
+}
+
+/*------------------------------------*\
+
+\*------------------------------------*/
+.copyright,.record{
+  display: inline-block;
+  margin-right: 10px;
+}
+.copyright::after{
+  content: "|";
+  padding-left: 10px;
+}
+
+
+/*------------------------------------*\
+    侧边栏
+\*------------------------------------*/
+aside.jqsb-sidebar{
+  width: 280px;
+  top: 51px;
+  .sidebar-inner{
+    text-align: center;
+    padding: 2rem 1rem;
+    color:$base_color_gray;
+    .site-overview{
+      .author {
+        img{
+          background-color: $base_color_black;
+          border-color: $base_color_black;
+          max-width: 100px;
+          padding: 2px;
+        }
+        .author-name{
+          margin-top: 0;
+          color: $base_color_gray;
+        }
+      }
+      .description{
+        font-size: 1.3rem;
+        color: darken($base_color_gray,15%);
+      }
+      .state{
+        .state-item{
+          display: inline-block;
+          padding: 0 15px;
+          &:first-child{
+            border-right: 1px solid $base_color_black
+          }
+          span{
+            display: block;
+          }
+          .state-item-count{
+            font-size: 1.8rem;
+          }
+          .state-item-name{
+            font-size: 1.3rem;
+          }
+        }
+      }
+      .rss{
+        margin-top: 2rem;
+      }
+      .contact{
+        margin-top: 2rem;
+      }
+    }
+  }
+}
+
+
+
+
+

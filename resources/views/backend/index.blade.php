@@ -103,7 +103,7 @@
                             <li><a href="#">个人资料</a></li>
                             <li><a href="#">信箱</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="{{ url('/auth/signOut') }}">退出</a></li>
+                            <li><a href="{{ url('/auth/logout') }}">退出</a></li>
                         </ul>
                     </div>
                 </li>
