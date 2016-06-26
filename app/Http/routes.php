@@ -55,11 +55,21 @@
 //});
 //
 //
-//Route::get('redisTest', function () {
-//    $v = RedisGo::get('hello');
-//
-//    return $v;
-//});
+Route::get('redisTest', function () {
+
+    $v = RedisManager::command('hset', [ 'watermelon_tag_class', '特斯拉', 'tag-piece-LightPink' ]);
+
+//    $v = RedisManager::command('get',['watermelon_thumbs_up_count']);
+
+
+    $v = RedisManager::command('hget', [ 'watermelon_tag_class', '特斯拉' ]);
+
+    if ( is_null($v) ) {
+        $v = 'kong';
+    }
+
+    return $v;
+});
 //Route::get('orm', function () {
 //    $data = \App\Model\Article::skip(0)->take(10)->get();
 //
@@ -172,7 +182,7 @@ Route::group(['namespace' => 'Auth'], function () {
  */
 //\Redis::set('test',$this->redirectPath());
 
-Route::group(['namespace' => 'Backend', 'middleware' => 'auth'], function () {
+Route::group([ 'namespace' => 'Backend', 'middleware' => [ 'auth', 'web' ] ], function () {
     Route::group(['prefix' => 'backend'], function () {
 
         // 后台主页

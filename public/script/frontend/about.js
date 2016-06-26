@@ -2,7 +2,7 @@
  * Created by Gavin on 16/4/19.
  */
 // 多说公共JS代码 start (一个网页只需插入一次)
-var duoshuoQuery = {short_name:"local20160327"};
+var duoshuoQuery = {short_name: "watermelon-api"};
 (function() {
     var ds = document.createElement('script');
     ds.type = 'text/javascript'; ds.async = true;

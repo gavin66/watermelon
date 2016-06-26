@@ -21,16 +21,18 @@
                         </div>
                         <div class="article-list-footer">
                             <div class="wm-category inline-block">
-                                <a href="" class="tag-piece tag-piece-LightPink">程序</a>
-                                <a href="" class="tag-piece tag-piece-sauce">生活</a>
-                                <a href="" class="tag-piece tag-piece-swarthy">人生</a>
+                                @if( !is_null($v['categories']) )
+                                    @foreach(json_decode($v['categories'],1) as $item)
+                                        @include(' layouts/tagger', ['tag' => $item])
+                                    @endforeach
+                                @endif
                             </div>
                             <div class="wm-tag inline-block">
-                                <a href="" class="tag-piece tag-piece-conifer">Javascript</a>
-                                <a href="" class="tag-piece tag-piece-RedGold">HTML</a>
-                                <a href="" class="tag-piece tag-piece-ultramarine">Node</a>
-                                <a href="" class="tag-piece tag-piece-ink">Node</a>
-                                <a href="" class="tag-piece tag-piece-amber">Node</a>
+                                @if(!is_null($v['tags']))
+                                    @foreach(json_decode($v['tags'],1) as $item)
+                                        @include(' layouts/tagger', ['tag' => $item])
+                                    @endforeach
+                                @endif
                             </div>
                             <div class="more pull-right">
                                 <a class="wm-label vm-label-scale wm-label-default" href="/article/{{ $v['id'] }}">More>></a>
@@ -39,8 +41,8 @@
                     </article>
                 @endforeach
 
-                {{-- 分页 --}}
-                @include('tool/pagination', ['paginator' => $articles])
+                {{--分页--}}
+                @include(' layouts/pagination', ['paginator' => $articles])
 
             </section>
             <section class="col-sm-3">

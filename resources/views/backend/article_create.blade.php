@@ -30,10 +30,11 @@
                         <div class="panel-heading">
                             发布
                         <span class="glyphicon glyphicon-triangle-bottom pull-right" role="button"
-                              data-toggle="collapse" href="#release" aria-expanded="false" aria-controls="release">
+                              data-toggle="collapse" href="#release-toggle" aria-expanded="false"
+                              aria-controls="release-toggle">
                         </span>
                         </div>
-                        <ul class="list-group collapse in" id="release">
+                        <ul class="list-group collapse in" id="release-toggle">
                             <li class="list-group-item">保存草稿
                                 <select title="状态" class="form-control" name="status" >
                                     <option>草稿</option> {{-- selected disabled value --}}
@@ -53,8 +54,6 @@
                                     <button type="button" class="btn btn-primary btn-sm pull-right" id="save-article">
                                         保存</button>
                                 @endif
-                                <button type="submit" class="btn btn-primary btn-sm pull-right" id="submit-article">
-                                    Go-submit</button>
                             </li>
                         </ul>
                     </div>
@@ -66,10 +65,11 @@
                         <div class="panel-heading">
                             分类
                         <span class="glyphicon glyphicon-triangle-bottom pull-right" role="button"
-                              data-toggle="collapse" href="#sort" aria-expanded="false" aria-controls="sort">
+                              data-toggle="collapse" href="#category-toggle" aria-expanded="false"
+                              aria-controls="category-toggle">
                         </span>
                         </div>
-                        <ul class="list-group collapse in" id="sort">
+                        <ul class="list-group collapse in" id="category-toggle">
                             <li class="list-group-item">
                                 <div class="form-inline">
                                     <input type="text" class="form-control" id="category" placeholder="input">
@@ -87,10 +87,11 @@
                         <div class="panel-heading">
                             标签
                         <span class="glyphicon glyphicon-triangle-bottom pull-right" role="button"
-                              data-toggle="collapse" href="#tag" aria-expanded="false" aria-controls="tag">
+                              data-toggle="collapse" href="#tag-toggle" aria-expanded="false"
+                              aria-controls="tag-toggle">
                         </span>
                         </div>
-                        <ul class="list-group collapse in" id="tag">
+                        <ul class="list-group collapse in" id="tag-toggle">
                             <li class="list-group-item">
                                 <div class="form-inline">
                                     <input type="text" class="form-control" id="tag" placeholder="input">

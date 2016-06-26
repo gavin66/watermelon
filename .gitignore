@@ -1,13 +1,6 @@
 /vendor
-/node_modules
-/public/storage
-Homestead.yaml
-Homestead.json
-.env
-/resources/grunt/node_modules
-;/storage
-;composer.lock
-.idea
-note.txt
+/resources/node_modules
+/storage
 _ide_helper.php
-
+.env
+.idea
