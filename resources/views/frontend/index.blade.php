@@ -8,7 +8,8 @@
                     <article class="article-list-entry box-shadow">
                         <div class="article-list-header">
                             <h3 class="title font-serif">
-                                <a class="post-title-link" itemprop="url" href="/article/{{ $v['id'] }}">{{ $v['title'] }}</a>
+                                <a class="post-title-link" itemprop="url"
+                                   href="/article/{{ $v['id'] }}">{{ $v['title'] }}</a>
                                 <small class="time">
                                     <i class="fa fa-calendar"></i>
                                     {{ $v['created_at'] }}
@@ -17,7 +18,7 @@
                         </div>
                         <div class="article-list-content">
                             <p></p>
-                            <p><span class="invisible">空格</span>{{$v['outline']}}</p>
+                            <p><span class="invisible">空格</span>{{ $v['outline'] }}</p>
                         </div>
                         <div class="article-list-footer">
                             <div class="wm-category inline-block">

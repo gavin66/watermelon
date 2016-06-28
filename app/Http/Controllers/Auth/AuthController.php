@@ -11,9 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 
-
-class AuthController extends Controller
-{
+class AuthController extends Controller {
     /*
     |--------------------------------------------------------------------------
     | Registration & Login Controller
@@ -46,39 +44,38 @@ class AuthController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
+    public function __construct() {
+        $this->middleware($this->guestMiddleware(), [ 'except' => 'logout' ]);
     }
 
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param  array $data
+     *
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
-    {
+    protected function validator( array $data ) {
         return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
+            'name'     => 'required|max:255',
+            'email'    => 'required|email|max:255|unique:users',
             'password' => 'required|min:6',
 //            'password' => 'required|min:6|confirmed',
-            'captcha' => 'required|captcha',
+            'captcha'  => 'required|captcha',
         ]);
     }
 
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param  array $data
+     *
      * @return User
      */
-    protected function create(array $data)
-    {
+    protected function create( array $data ) {
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
+            'name'     => $data['name'],
+            'email'    => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
     }
@@ -87,9 +84,10 @@ class AuthController extends Controller
      * 重写登录请求,添加对ajax的支持
      *
      * @param Request $request
+     *
      * @return $this|\Illuminate\Http\RedirectResponse
      */
-    public function login(Request $request){
+    public function login( Request $request ) {
         $this->validateLogin($request);
 
         // If the class is using the ThrottlesLogins trait, we can automatically throttle
@@ -97,7 +95,7 @@ class AuthController extends Controller
         // the IP address of the client making these requests into this application.
         $throttles = $this->isUsingThrottlesLoginsTrait();
 
-        if ($throttles && $lockedOut = $this->hasTooManyLoginAttempts($request)) {
+        if ( $throttles && $lockedOut = $this->hasTooManyLoginAttempts($request) ) {
             $this->fireLockoutEvent($request);
 
             return $this->sendLockoutResponse($request);
@@ -106,34 +104,34 @@ class AuthController extends Controller
         $credentials = $this->getCredentials($request);
 
         // 如果是 ajax 的请求
-        if($request->ajax()){
-            if (Auth::guard($this->getGuard())->attempt($credentials, $request->has('remember'))) {
-                if ($throttles) {
+        if ( $request->ajax() ) {
+            if ( Auth::guard($this->getGuard())->attempt($credentials, $request->has('remember')) ) {
+                if ( $throttles ) {
                     $this->clearLoginAttempts($request);
                 }
 
-                return response()->json(['redirectPath'=>$this->redirectPath()],200);
+                return response()->json([ 'redirectPath' => $this->redirectPath() ], 200);
             }
 
             // If the login attempt was unsuccessful we will increment the number of attempts
             // to login and redirect the user back to the login form. Of course, when this
             // user surpasses their maximum number of attempts they will get locked out.
-            if ($throttles && ! $lockedOut) {
+            if ( $throttles && !$lockedOut ) {
                 $this->incrementLoginAttempts($request);
             }
 
-            return response()->json($this->getLoginFailedMessage($credentials),422);
+            return response()->json($this->getLoginFailedMessage($credentials), 422);
         }
 
         // 不是 ajax 请求 , 表单 post 请求
-        if (Auth::guard($this->getGuard())->attempt($credentials, $request->has('remember'))) {
+        if ( Auth::guard($this->getGuard())->attempt($credentials, $request->has('remember')) ) {
             return $this->handleUserWasAuthenticated($request, $throttles);
         }
 
         // If the login attempt was unsuccessful we will increment the number of attempts
         // to login and redirect the user back to the login form. Of course, when this
         // user surpasses their maximum number of attempts they will get locked out.
-        if ($throttles && ! $lockedOut) {
+        if ( $throttles && !$lockedOut ) {
             $this->incrementLoginAttempts($request);
         }
 
@@ -146,26 +144,33 @@ class AuthController extends Controller
      *
      * @return array
      */
-    protected function getLoginFailedMessage($credentials){
-        $re_array = [];
+    protected function getLoginFailedMessage( $credentials ) {
+        $re_array = [ ];
 
-        $user = User::where('email',$credentials['email'])->first();
+        $user = User::where('email', $credentials['email'])->first();
 
-        if(empty($user)) {$re_array['email'] = '此邮箱未注册'; return $re_array;}
+        if ( empty( $user ) ) {
+            $re_array['email'] = '此邮箱未注册';
 
-        $re_array['password']  = '密码输入有误'; return $re_array;
+            return $re_array;
+        }
+
+        $re_array['password'] = '密码输入有误';
+
+        return $re_array;
     }
 
     /**
      * 重写注册请求
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
-    public function register(Request $request) {
+    public function register( Request $request ) {
         $validator = $this->validator($request->all());
 
-        if ($validator->fails()) {
+        if ( $validator->fails() ) {
             $this->throwValidationException(
                 $request, $validator
             );
@@ -173,7 +178,7 @@ class AuthController extends Controller
 
         Auth::guard($this->getGuard())->login($this->create($request->all()));
 
-        if($request->ajax()) return response()->json(['redirectPath'=>$this->redirectPath()],200);
+        if ( $request->ajax() ) return response()->json([ 'redirectPath' => $this->redirectPath() ], 200);
         else return redirect($this->redirectPath());
     }
 

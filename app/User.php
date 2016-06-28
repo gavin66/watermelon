@@ -1,4 +1,4 @@
-<?php namespace App\Model;
+<?php namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 

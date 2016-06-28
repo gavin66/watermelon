@@ -38,6 +38,13 @@
 //Route::get('phpinfo', function () {
 //    phpinfo();
 //});
+Route::get('mainTest',function(){
+//    echo config('watermelon.update_tag_cloud_url');
+
+    echo date('Y-m-d H:i:s');
+    echo '<br>';
+//    echo time();
+});
 //Route::get('httpTest', function () {
 //    $client = new \GuzzleHttp\Client([
 //        'base_uri' => 'http://httpbin.org',
@@ -55,21 +62,21 @@
 //});
 //
 //
-Route::get('redisTest', function () {
-
-    $v = RedisManager::command('hset', [ 'watermelon_tag_class', '特斯拉', 'tag-piece-LightPink' ]);
-
-//    $v = RedisManager::command('get',['watermelon_thumbs_up_count']);
-
-
-    $v = RedisManager::command('hget', [ 'watermelon_tag_class', '特斯拉' ]);
-
-    if ( is_null($v) ) {
-        $v = 'kong';
-    }
-
-    return $v;
-});
+//Route::get('redisTest', function () {
+//
+//    $v = RedisManager::command('hset', [ 'watermelon_tag_class', '特斯拉', 'tag-piece-LightPink' ]);
+//
+////    $v = RedisManager::command('get',['watermelon_thumbs_up_count']);
+//
+//
+//    $v = RedisManager::command('hget', [ 'watermelon_tag_class', '特斯拉' ]);
+//
+//    if ( is_null($v) ) {
+//        $v = 'kong';
+//    }
+//
+//    return $v;
+//});
 //Route::get('orm', function () {
 //    $data = \App\Model\Article::skip(0)->take(10)->get();
 //
