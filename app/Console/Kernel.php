@@ -27,7 +27,11 @@ class Kernel extends ConsoleKernel {
         // $schedule->command('inspire')
         //          ->hourly();
 
-//        $schedule->command('watermelon:update-tag-cloud')->everyFiveMinutes()->withoutOverlapping()->appendOutputTo(config('watermelon.update_tag_cloud_url'));
+        $schedule->command('watermelon:update-tag-cloud')
+                 ->everyFiveMinutes()
+                 ->withoutOverlapping()
+                 ->appendOutputTo(config('watermelon.update_tag_cloud_url'));
+
     }
 }
 

@@ -39,11 +39,7 @@
 //    phpinfo();
 //});
 Route::get('mainTest',function(){
-//    echo config('watermelon.update_tag_cloud_url');
-
-    echo date('Y-m-d H:i:s');
-    echo '<br>';
-//    echo time();
+    dd(RedisManager::command('HGETALL',['watermelon_tag_cloud']));
 });
 //Route::get('httpTest', function () {
 //    $client = new \GuzzleHttp\Client([

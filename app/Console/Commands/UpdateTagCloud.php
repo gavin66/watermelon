@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Model\Article;
 use Illuminate\Console\Command;
+use RedisManager;
 
 class UpdateTagCloud extends Command {
     /**
@@ -18,7 +19,7 @@ class UpdateTagCloud extends Command {
      *
      * @var string
      */
-    protected $description = 'update blog tag'; // 更新博客标签云
+    protected $description = '更新博客标签云'; // 更新博客标签云
 
     /**
      * Create a new command instance.
@@ -35,16 +36,23 @@ class UpdateTagCloud extends Command {
      * @return mixed
      */
     public function handle() {
-        //
-//        $time = time();
-//        $tag = '["Model S"]';
-//        $tag = '["'.$time.'"]';
-//
-//        Article::where('id','5')->update(['tags'=>$tag]);
-//        Article::update(['tags'=>'["Model S"]']);
 
-        \RedisManager::command('set',['test','jjjj']);
+        RedisManager::command('DEL',['watermelon_tag_cloud']);
 
-        $this->info('成功了');
+        Article::chunk(300,function($articles){
+            $tags = [];
+            foreach($articles as $article){
+                foreach(json_decode($article->tags,true) as $tag) {
+                    $tags[] = $tag;
+                }
+            }
+
+            foreach( array_count_values($tags) as $tag=>$num ){
+                RedisManager::command('HINCRBY',['watermelon_tag_cloud',$tag,$num]);
+            }
+
+        });
+
+        $this->info(date('Y-m-d H:i:s').' 更新标签云成功!');
     }
 }
