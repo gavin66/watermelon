@@ -21,8 +21,9 @@ module.exports = function(grunt) {
       },
       dist:{
         files:{
-          'dist/<%= pkg.name %>-debug.css':['demo/<%= pkg.name %>.css'],
-          'dist/<%= pkg.name %>-debug.js':['demo/<%= pkg.name %>.js']
+          'dist/<%= pkg.name %>-debug.css':['demo/<%= pkg.name %>.css']
+          //'dist/<%= pkg.name %>-debug.css':['demo/<%= pkg.name %>.css'],
+          //'dist/<%= pkg.name %>-debug.js':['demo/<%= pkg.name %>.js']
         }
       }
     },
@@ -35,7 +36,7 @@ module.exports = function(grunt) {
       },
       dev: {
         files:{
-          'demo/<%= pkg.name %>.css': 'demo/<%= pkg.name %>.scss'
+          '../public/style/app.css': 'scss/app.scss'
         }
       }
     },
@@ -67,8 +68,9 @@ module.exports = function(grunt) {
 
     watch: {
       sass: {
-        files: 'demo/*.scss',
-        tasks: ['sass:dev','copy:dist']
+        files: 'scss/**/*.scss',
+        //tasks: ['sass:dev','copy:dist']
+        tasks: ['sass:dev']
       },
       livereload: {
         options:{

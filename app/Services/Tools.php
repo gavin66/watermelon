@@ -125,3 +125,65 @@ if ( !function_exists('getTagClass') ) {
         return $class;
     }
 }
+
+if ( !function_exists('getTagCountData') ) {
+    /**
+     * 获取标签云数据
+     * @return mixed
+     */
+    function getTagCountData(){
+
+        return RedisManager::command('HGETALL',['watermelon_tag_count']);
+
+    }
+}
+
+
+if ( !function_exists('getCategoryCountData') ) {
+    /**
+     * 获取分类数据
+     * @return mixed
+     */
+    function getCategoryCountData(){
+
+        return RedisManager::command('HGETALL',['watermelon_category_count']);
+
+    }
+}
+
+if ( !function_exists('getTagCountLength') ) {
+    /**
+     * 获取标签长度
+     * @return mixed
+     */
+    function getTagCountLength(){
+
+        return RedisManager::command('HLEN',['watermelon_tag_count']);
+
+    }
+}
+
+if ( !function_exists('getCategoryCountLength') ) {
+    /**
+     * 获取分类长度
+     * @return mixed
+     */
+    function getCategoryCountLength(){
+
+        return RedisManager::command('HLEN',['watermelon_category_count']);
+
+    }
+}
+
+if( !function_exists('getThumbsUpCount') ) {
+    /**
+     * 获取点赞次数
+     * @return mixed
+     */
+    function getThumbsUpCount(){
+
+        return RedisManager::command('GET',['watermelon_thumbs_up_count']);
+
+    }
+}
+

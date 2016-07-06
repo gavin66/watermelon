@@ -8,7 +8,7 @@ var deps = [
 ];
 seajs.use(deps,function($){
     // 回到顶端
-    $.backToTop();
+    $.helpers.backToTop();
 
     $('.article-tag').on('click','a',function(e){
         e.preventDefault();

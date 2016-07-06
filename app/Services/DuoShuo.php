@@ -38,7 +38,6 @@ class DuoShuo {
 
         $data = $response->getBody();
 
-//        return $data;
 
         $data = json_decode($data, 1);
 
@@ -50,6 +49,30 @@ class DuoShuo {
 
     }
 
+    /**
+     * 根据文章 ID 获取评论数
+     * @param $articlesId
+     *
+     * @return mixed
+     */
+    public function getCommentsCountByArticleId($articlesId) {
+        $params = [
+            'short_name' => config('watermelon.ds_short_name'), // 站点申请的多说二级域名。例如：你注册了http://apitest.duoshuo.com/时，多说二级域名为**apitest**。
+            'threads'    => $articlesId // string 必须 你需要获取的文章的thread-key，可传递多个thread_key，即文章在原站点中的id，与评论框中data-thread-key一致。用逗号分割。例如：4ff160411318693231000006,4ff160411318693231000007
+        ];
+
+        $client = new Client([
+            'base_uri' => 'http://api.duoshuo.com',
+        ]);
+
+        $response = $client->get('/threads/counts.json', [ 'query' => $params ]);
+
+        $data = $response->getBody();
+
+        $data = json_decode($data, 1);
+
+        return $data['response'];
+    }
     /**
      *
      * 获取评论数据
@@ -166,6 +189,5 @@ class DuoShuo {
 
         return $hmac;
     }
-
 
 }

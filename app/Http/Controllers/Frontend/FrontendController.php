@@ -28,10 +28,8 @@ class FrontendController extends Controller {
         isset( $sort ) && isset( $order ) && $searcher->orderBy($sort, $order);
         $articles = $searcher->paginate(10);
 
-        $hot_articles = (new DuoShuo())->getHotArticles([ ], false);
 
-        return Response::view('frontend.index', [ 'articles'    => $articles,
-                                                  'hotArticles' => $hot_articles ]);
+        return Response::view('frontend.index', [ 'articles' => $articles ]);
     }
 
     public function article( $id ) {
@@ -57,8 +55,24 @@ class FrontendController extends Controller {
     }
 
     public function archive() {
+//        $searcher = Article::whereRaw('1=1')->orderBy('created_at', 'desc');
+//        $articles = $searcher->paginate(10);
+//        return Response::view('frontend.archive', [ 'articles' => $articles ]);
 
-        return response()->view('frontend.archive', [ ]);
+        $searcher = \App\Model\Article::whereRaw('1=1')->orderBy('created_at', 'desc');
+
+        $archive = [];
+
+        $searcher->chunk(5,function($articles) use (&$archive){
+            foreach($articles as $article){
+                if( !isset( $archive[$article->created_at->format('Y-m')] ) ){
+                    $archive[$article->created_at->format('Y-m')] = [];
+                }
+                $archive[$article->created_at->format('Y-m')][] = $article;
+            }
+        });
+
+        return Response::view('frontend.archive', [ 'archive' => $archive ]);
 
     }
 
@@ -67,10 +81,6 @@ class FrontendController extends Controller {
         $count = RedisManager::command('incr', [ 'watermelon_thumbs_up_count' ]);
 
         return [ 'count' => $count ];
-    }
-
-    public function test( TimedExecute $timed ) {
-        echo $timed->synchronizeTag();
     }
 
 }

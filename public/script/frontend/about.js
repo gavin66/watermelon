@@ -1,6 +1,7 @@
 /**
  * Created by Gavin on 16/4/19.
  */
+
 // 多说公共JS代码 start (一个网页只需插入一次)
 var duoshuoQuery = {short_name: "watermelon-api"};
 (function() {
@@ -32,6 +33,7 @@ seajs.use(deps, function($,editormd) {
     seajs.use('/style/frontend/duoshuo.css');
 
     $(function(){
+
         // h5音频播放器
         var aPlayer = new APlayer({
             element: document.getElementById('aPlayer'),
@@ -53,10 +55,11 @@ seajs.use(deps, function($,editormd) {
         // 为我点赞
         $('#thumbs-up').on('click',function(){
             $.get('/thumbsUp',{},function(data){
-                console.debug(data.count);
+                $('.thumbs-up-count').text(data.count);
             },'json');
         });
 
+        // 异步加载 js, 解析 markdown
         $.helpers.loadScript('/vendor/editor.md-1.5.0/lib/sequence-diagram.min.js',function(){
             editormd.markdownToHTML("markdown-view", {
                 markdown        : $('#markdown-text').text(),//+ "\r\n" + $("#append-test").text(),

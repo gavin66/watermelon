@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel {
      */
     protected $commands = [
 //         Commands\Inspire::class,
-        Commands\UpdateTagCloud::class
+        Commands\CountTagCategory::class,
     ];
 
     /**
@@ -27,10 +27,12 @@ class Kernel extends ConsoleKernel {
         // $schedule->command('inspire')
         //          ->hourly();
 
-        $schedule->command('watermelon:update-tag-cloud')
+        // 更新标签
+        $schedule->command('watermelon:count-tag-category')
                  ->everyFiveMinutes()
                  ->withoutOverlapping()
-                 ->appendOutputTo(config('watermelon.update_tag_cloud_url'));
+                 ->appendOutputTo(config('watermelon.console_count_tag_category_log'));
+
 
     }
 }

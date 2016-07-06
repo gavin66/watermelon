@@ -168,7 +168,7 @@ define(function (require, exports, module) {
      * 使选定元素具有返回页面顶端的能力
      * @param options
      */
-    $.backToTop = function(options){
+    $.helpers.backToTop = function(options){
         var defaults = {
             clickEle:'.back-to-top',
             scrollEle:'html,body',

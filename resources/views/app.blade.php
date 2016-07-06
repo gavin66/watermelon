@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" class="theme-default">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,12 +14,12 @@
     <!-- 在移动设备浏览器上，通过为视口（viewport）设置 meta 属性为 user-scalable=no 可以禁用其缩放（zooming）功能。
         这样禁用缩放功能后，用户只能滚动屏幕，就能让你的网站看上去更像原生应用的感觉。注意，这种方式不推荐所有网站使用，需看情况而定-->
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">-->
+    <link rel="shortcut icon" href="/img/Monkey_D_Luffey.ico">
 
     <title>@yield('title','Gavin\' Blog')</title>
 
     <link rel="stylesheet" href="{{ asset('/vendor/bootstrap-3.3.5/dist/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/vendor/font-awesome-4.5.0/css/font-awesome.min.css') }}">
-
     <link href="{{ asset('/style/app.css') }}" rel="stylesheet">
 
     @section('css')
@@ -27,46 +27,35 @@
     @show
 
 </head>
-<body>
-    <header class="navbar navbar-blue navbar-static-top" id="top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-expanded="false">
-                    <span class="sr-only"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <nav class="collapse navbar-collapse" id="bs-navbar">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{{ url('/') }}">首页</a></li>
-                    <li><a href="{{ url('/category') }}">分类</a></li>
-                    <li><a href="{{ url('/archive') }}">归档</a></li>
-                    <li><a href="{{ url('/about') }}">关于我</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<body style="position: relative;">
+    @section('navbar')
+        <!-- 导航栏 -->
+        @include(' layouts/navbar')
+    @show
 
-    <div class="jumbotron jumbotron-blue">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-8 text-center">
-                    <h1 class="font-serif">Gavin's Blog</h1>
-                    <p>宁愿小众,不愿平庸</p>
-                    <ul class="list-inline">
-                        <li><a href="https://github.com/gavin66" target="_blank"><i class="fa fa-github"></i>Github</a></li>
-                        <li>·</li>
-                        <li><a href="http://weibo.com/lanbert" target="_blank"><i class="fa fa-weibo"></i>微博</a></li>
-                        <li>·</li>
-                        <li><a href="https://www.zhihu.com/people/Gavin23" target="_blank">知乎</a></li>
-                    </ul>
+
+    @section('jumbotron')
+        <!-- 巨幕 -->
+        <div class="jumbotron jumbotron-blue">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 text-center">
+                        <h1 class="font-serif">Gavin's Blog</h1>
+                        <p>宁愿小众,不愿平庸</p>
+                        <ul class="list-inline">
+                            <li><a href="https://github.com/gavin66" target="_blank"><i class="fa fa-github"></i>Github</a></li>
+                            <li>·</li>
+                            <li><a href="http://weibo.com/lanbert" target="_blank"><i class="fa fa-weibo"></i>微博</a></li>
+                            <li>·</li>
+                            <li><a href="https://www.zhihu.com/people/Gavin23" target="_blank">知乎</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-4"></div>
                 </div>
-                <div class="col-sm-4"></div>
             </div>
         </div>
-    </div>
+    @show
+
 
     @section('content')
 
@@ -93,19 +82,24 @@
         <span class="fa fa-chevron-up"></span>
     </div>
 
-    <canvas id="evanyou" width="2880" height="756"></canvas>
-
-    @section('beforeJS')
-
+    @section('background-particles')
+        <!-- 粒子背景 -->
+        <canvas id="evanyou" width="2880" height="756"></canvas>
     @show
 
+    @section('back-top')
+        <!-- 返回顶端 -->
+        <div class="back-to-top" style="display: none;">
+            <span class="fa fa-chevron-up"></span>
+        </div>
+    @show
+
+    @section('beforeJS')@show
+    <!-- 加载JavaScript -->
     <script src="{{ asset('/vendor/seajs-3.0.0/dist/sea.js') }}"></script>
     <script src="{{ asset('/script/config/seajs-config.js') }}"></script>
     <script src="{{ asset('/script/app.js') }}" ></script>
-
-    @section('endJS')
-
-    @show
+    @section('endJS')@show
 
 </body>
 </html>

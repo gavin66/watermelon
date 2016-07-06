@@ -212,8 +212,10 @@ return [
         'Validator'    => Illuminate\Support\Facades\Validator::class,
         'View'         => Illuminate\Support\Facades\View::class,
 
+        'DuoShuo' => \App\Facades\DuoShuo::class,
+
         // 验证码
-        'Captcha'      => Mews\Captcha\Facades\Captcha::class,
+        'Captcha' => Mews\Captcha\Facades\Captcha::class,
 
     ],
 

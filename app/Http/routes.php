@@ -32,14 +32,31 @@
 //Route::get('/home', 'HomeController@index');
 
 
-
 // 测试使用
 //Route::resource('category', 'Backend\CategoryController');
 //Route::get('phpinfo', function () {
 //    phpinfo();
 //});
-Route::get('mainTest',function(){
-    dd(RedisManager::command('HGETALL',['watermelon_tag_cloud']));
+Route::get('mainTest', function () {
+//    $searcher = \App\Model\Article::whereRaw('1=1')->orderBy('created_at', 'desc');
+//
+//    $archive = [];
+//
+//    $searcher->chunk(5,function($articles) use (&$archive){
+//        foreach($articles as $article){
+//            if( !isset( $archive[$article->created_at->format('Y-m')] ) ){
+//                $archive[$article->created_at->format('Y-m')] = [];
+//            }
+//            $archive[$article->created_at->format('Y-m')][] = $article;
+//        }
+//
+//    });
+//
+//    dd($archive);
+
+    dd(DuoShuo::getCommentsCountByArticleId(2));
+
+
 });
 //Route::get('httpTest', function () {
 //    $client = new \GuzzleHttp\Client([
@@ -122,11 +139,10 @@ Route::get('mainTest',function(){
 //});
 
 
-
 /**
  * 前台部分
  */
-Route::group(['namespace' => 'Frontend'], function () {
+Route::group([ 'namespace' => 'Frontend' ], function () {
 
     // 前台主页 文章列表
     Route::get('/', 'FrontendController@index');
@@ -152,12 +168,12 @@ Route::group(['namespace' => 'Frontend'], function () {
 /**
  * 认证与注册部分
  */
-Route::group(['namespace' => 'Auth'], function () {
+Route::group([ 'namespace' => 'Auth' ], function () {
     // 显示认证页
     Route::get('login', 'AuthController@showLoginForm');
     Route::get('admin', 'AuthController@showAdminLoginForm');
 
-    Route::group(['prefix' => 'auth'], function () {
+    Route::group([ 'prefix' => 'auth' ], function () {
         // 登录
         Route::post('login', 'AuthController@login');
 
@@ -168,7 +184,7 @@ Route::group(['namespace' => 'Auth'], function () {
         Route::post('register', 'AuthController@register');
     });
 
-    Route::group(['prefix' => 'password'], function () {
+    Route::group([ 'prefix' => 'password' ], function () {
         // 发送密码重置链接路由
         Route::get('email', 'PasswordController@getEmail');
         Route::post('email', 'PasswordController@postEmail');
@@ -186,7 +202,7 @@ Route::group(['namespace' => 'Auth'], function () {
 //\Redis::set('test',$this->redirectPath());
 
 Route::group([ 'namespace' => 'Backend', 'middleware' => [ 'auth', 'web' ] ], function () {
-    Route::group(['prefix' => 'backend'], function () {
+    Route::group([ 'prefix' => 'backend' ], function () {
 
         // 后台主页
         Route::get('/', 'BackendController@index');
