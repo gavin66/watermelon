@@ -36,20 +36,20 @@
                             </div>
                             @foreach($articles as $index=>$article)
                                 <article class="timeline-box {{ $index%2 == 0 ? 'left' : 'right'}} box-shadow ">
-                                    <h4 class="title font-serif"><a href="/article/{{ $article['id'] }}">{{ $article['title'] }}</a></h4>
+                                    <h4 class="title font-serif"><a href="{{ route('article',[ $article['id'] ]) }}">{{ $article['title'] }}</a></h4>
                                     <p class="description"><span class="invisible">空格</span>{{ $article['outline'] }}</p>
                                     <div class="time"><i class="fa fa-calendar"></i>&nbsp;{{ $article['created_at'] }}</div>
                                     <div class="wm-category-sm inline-block">
                                         @if( !is_null($article['categories']) )
-                                            @foreach(json_decode($article['categories'],1) as $item)
-                                                @include(' layouts/tagger', ['size'=>'small','tag' => $item])
+                                            @foreach(json_decode($article['categories'],1) as $category)
+                                                @include(' layouts/tagger', [ 'size'=>'small','key'=>'categories','item' => $category ])
                                             @endforeach
                                         @endif
                                     </div>
                                     <div class="wm-tag-sm inline-block">
                                         @if(!is_null($article['tags']))
-                                            @foreach(json_decode($article['tags'],1) as $item)
-                                                @include(' layouts/tagger', ['size'=>'small','tag' => $item])
+                                            @foreach(json_decode($article['tags'],1) as $tag)
+                                                @include(' layouts/tagger', [ 'size'=>'small','key' => 'tags','item' => $tag ])
                                             @endforeach
                                         @endif
                                     </div>
@@ -59,7 +59,7 @@
                                             <span>{{ DuoShuo::getCommentsCountByArticleId($article['id'])[$article['id']]['comments'] }} 评论</span>
                                         </div>
                                         <div class="more pull-right">
-                                            <a class="wm-label vm-label-scale wm-label-default" href="/article/{{ $article['id'] }}">More>></a>
+                                            <a class="wm-label vm-label-scale wm-label-default" href="{{ route('article',[ $article['id'] ]) }}">More>></a>
                                         </div>
                                     </div>
                                 </article>

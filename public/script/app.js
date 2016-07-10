@@ -10,15 +10,6 @@ seajs.use(deps,function($){
     // 回到顶端
     $.helpers.backToTop();
 
-    $('.article-tag').on('click','a',function(e){
-        e.preventDefault();
-        window.location.href = window.location.origin + '?tags=' + $(this).text();
-    });
-    $('.article-category').on('click','a',function(e){
-        e.preventDefault();
-        window.location.href = window.location.origin + '?categories=' + $(this).text();
-    });
-
     function evanyou() {
         for (x.clearRect(0, 0, w, h), q = [{
             x: 0,

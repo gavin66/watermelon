@@ -71,10 +71,10 @@
                         </div>
                         <ul class="list-group collapse in" id="category-toggle">
                             <li class="list-group-item">
-                                <div class="form-inline">
-                                    <input type="text" class="form-control" id="category" placeholder="input">
-                                    <a class="btn btn-default" href="#" role="button" id="">添加</a>
+                                <div class="tagger-box inline-block">
+                                    <input type="text" id="category" class="tagger-input" placeholder="添加标签,以空格分割">
                                 </div>
+                                <a class="btn btn-default" href="#" role="button" id="">添加</a>
                                 <div id="category-container" data-categories="{{ $article['categories'] or '' }}"></div>
                             </li>
                         </ul>
@@ -86,17 +86,17 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             标签
-                        <span class="glyphicon glyphicon-triangle-bottom pull-right" role="button"
-                              data-toggle="collapse" href="#tag-toggle" aria-expanded="false"
-                              aria-controls="tag-toggle">
-                        </span>
+                            <span class="glyphicon glyphicon-triangle-bottom pull-right" role="button"
+                                  data-toggle="collapse" href="#tag-toggle" aria-expanded="false"
+                                  aria-controls="tag-toggle">
+                            </span>
                         </div>
                         <ul class="list-group collapse in" id="tag-toggle">
                             <li class="list-group-item">
-                                <div class="form-inline">
-                                    <input type="text" class="form-control" id="tag" placeholder="input">
-                                    <a class="btn btn-default" href="#" role="button" id="">添加</a>
+                                <div class="tagger-box inline-block">
+                                    <input type="text" id="tag" class="tagger-input" placeholder="添加标签,以空格分割">
                                 </div>
+                                <a class="btn btn-default" href="#" role="button" id="">添加</a>
                                 <div id="tag-container" data-tags="{{ $article['tags'] or '' }}"></div>
                             </li>
                         </ul>

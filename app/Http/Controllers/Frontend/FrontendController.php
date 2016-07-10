@@ -29,7 +29,7 @@ class FrontendController extends Controller {
         $articles = $searcher->paginate(10);
 
 
-        return Response::view('frontend.index', [ 'articles' => $articles ]);
+        return Response::view('frontend.index', [ 'articles' => $articles, 'paginator_params' => [ 'tags' => $tags, 'categories' => $categories ] ]);
     }
 
     public function article( $id ) {
@@ -55,29 +55,23 @@ class FrontendController extends Controller {
     }
 
     public function archive() {
-//        $searcher = Article::whereRaw('1=1')->orderBy('created_at', 'desc');
-//        $articles = $searcher->paginate(10);
-//        return Response::view('frontend.archive', [ 'articles' => $articles ]);
-
         $searcher = \App\Model\Article::whereRaw('1=1')->orderBy('created_at', 'desc');
 
-        $archive = [];
+        $archive = [ ];
 
-        $searcher->chunk(5,function($articles) use (&$archive){
-            foreach($articles as $article){
-                if( !isset( $archive[$article->created_at->format('Y-m')] ) ){
-                    $archive[$article->created_at->format('Y-m')] = [];
+        $searcher->chunk(5, function ( $articles ) use ( &$archive ) {
+            foreach ( $articles as $article ) {
+                if ( !isset( $archive[ $article->created_at->format('Y-m') ] ) ) {
+                    $archive[ $article->created_at->format('Y-m') ] = [ ];
                 }
-                $archive[$article->created_at->format('Y-m')][] = $article;
+                $archive[ $article->created_at->format('Y-m') ][] = $article;
             }
         });
 
         return Response::view('frontend.archive', [ 'archive' => $archive ]);
-
     }
 
     public function thumbsUp() {
-
         $count = RedisManager::command('incr', [ 'watermelon_thumbs_up_count' ]);
 
         return [ 'count' => $count ];

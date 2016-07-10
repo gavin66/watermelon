@@ -23,7 +23,7 @@ var deps = [
 seajs.use(deps, function($,_,editormd,toastr) {
     seajs.use('/vendor/editor.md-1.5.0/css/editormd.min.css');
     seajs.use('/vendor/toastr-2.1.2/build/toastr.min.css');
-    seajs.use('/vendor/tagger-master/dist/tagger.min.css');
+    seajs.use('/vendor/tagger-1.0.0/dist/tagger.min.css');
 
     var clickable = true; // 更新按钮 的可点击性
 
@@ -74,14 +74,34 @@ seajs.use(deps, function($,_,editormd,toastr) {
         container: '#tag-container',
         color: 'random',
         divide: true,
-        tags: $tag_container.attr('data-tags') ? JSON.parse($tag_container.attr('data-tags')) : []
+        tags: $tag_container.attr('data-tags') ? JSON.parse($tag_container.attr('data-tags')) : [],
+        dropdown:{
+            load: {
+                url: 'http://127.0.0.1/data.json',
+                type: 'GET',
+                dataType: 'json',
+                success: function(data){
+                    return data;
+                }
+            }
+        }
     });
 
     $category.tagger({
         container: '#category-container',
         color: 'random',
         divide: true,
-        tags: $category_container.attr('data-categories') ? JSON.parse($category_container.attr('data-categories')) : []
+        tags: $category_container.attr('data-categories') ? JSON.parse($category_container.attr('data-categories')) : [],
+        dropdown:{
+            load: {
+                url: 'http://127.0.0.1/data.json',
+                type: 'GET',
+                dataType: 'json',
+                success: function(data){
+                    return data;
+                }
+            }
+        }
     });
 
     $('#save-article').on('click',function(){

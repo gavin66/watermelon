@@ -1,7 +1,7 @@
 @if( isset($size) && $size == 'small')
-    <a href="" class="tag-piece-sm {{ getTagClass($tag) }}">{{ $tag }}</a>
+    <a href="{{ route('articles_list',[ $key => $item ]) }}" class="tag-piece-sm {{ getTagClass($item) }}">{{ $item }}</a>
 @elseif(isset($size) && $size == 'normal')
-    <a href="" class="tag-piece {{ getTagClass($tag) }}">{{ $tag }}</a>
+    <a href="{{ route('articles_list',[ $key => $item ]) }}" class="tag-piece {{ getTagClass($item) }}">{{ $item }}</a>
 @else
-    <a href="" class="tag-piece {{ getTagClass($tag) }}">{{ $tag }}</a>
+    <a href="{{ route('articles_list',[ $key => $item ]) }}" class="tag-piece {{ getTagClass($item) }}">{{ $item }}</a>
 @endif

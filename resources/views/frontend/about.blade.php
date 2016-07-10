@@ -75,9 +75,9 @@
                 <div class="sidebar-chunk article-hot box-shadow">
                     <p class="sc-label inline-block">最热文章</p>
                     <ul class="list-unstyled font-serif">
-                        @foreach(DuoShuo::getHotArticles([],false) as $row)
-                            <li><a href="/article/{{ $row['thread_key'] }}">{{ $row['title'] }}</a>
-                                <span class="comment">&nbsp;&nbsp;-&nbsp;&nbsp;{{ $row['comments'] }} 评论</span>
+                        @foreach(DuoShuo::getHotArticles([],false) as $article)
+                            <li><a href="{{ route('article',[$article['thread_key']]) }}">{{ $article['title'] }}</a>
+                                <span class="comment">&nbsp;&nbsp;-&nbsp;&nbsp;{{ $article['comments'] }} 评论</span>
                             </li>
                         @endforeach
                     </ul>

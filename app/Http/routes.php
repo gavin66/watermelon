@@ -58,6 +58,13 @@ Route::get('mainTest', function () {
 
 
 });
+
+Route::get('data.json',function(){
+//    return json_encode(['javascript','php','python','html5','nginx','redis']);
+
+//    return response()->header('Access-Control-Allow-Origin', '*')->json(['javascript','php','python','html5','nginx','redis']);
+    return response()->json(['remote-javascript','remote-php','remote-python','remote-html5','remote-nginx','remote-redis'])->header('Access-Control-Allow-Origin', '*');
+});
 //Route::get('httpTest', function () {
 //    $client = new \GuzzleHttp\Client([
 //        'base_uri' => 'http://httpbin.org',
@@ -145,10 +152,10 @@ Route::get('mainTest', function () {
 Route::group([ 'namespace' => 'Frontend' ], function () {
 
     // 前台主页 文章列表
-    Route::get('/', 'FrontendController@index');
+    Route::get('/', [ 'as' => 'articles_list','uses' => 'FrontendController@index' ]);
 
     // 文章详细页
-    Route::get('article/{id}', 'FrontendController@article');
+    Route::get('article/{id}', [ 'as' => 'article','uses'=>'FrontendController@article' ]);
 
     // 分类
     Route::get('category', 'FrontendController@category');

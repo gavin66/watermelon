@@ -158,6 +158,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        // 数据库备份 还原,支持云存储 Amazon s3, dropbox, rackspace, sftp
+        BackupManager\Laravel\Laravel5ServiceProvider::class,
 
         // 在phpstorm中laravel框架的代码提示功能
         \Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,

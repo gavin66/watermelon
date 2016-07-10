@@ -33,7 +33,7 @@
                         <br>
                         <ul class="list-inline text-center">
                             @foreach(getCategoryCountData() as $category=>$num)
-                                <li><a href="javascript:void(0)">{{ $category }}<span class="badge">{{ $num }}</span></a></li>
+                                <li><a href="{{ url('?categories='.$category) }}">{{ $category }}<span class="badge">{{ $num }}</span></a></li>
                             @endforeach
                         </ul>
                         <br>

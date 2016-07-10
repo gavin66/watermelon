@@ -74,7 +74,7 @@
                 <!-- 多说分享 end -->
 
                 <!-- 多说评论框 start -->
-                <div class="ds-thread box-shadow" data-thread-key="{{ $article['id'] }}" data-title="{{ $article['title'] }}" data-url="/article/{{ $article['id'] }}"></div>
+                <div class="ds-thread box-shadow" data-thread-key="{{ $article['id'] }}" data-title="{{ $article['title'] }}" data-url="{{ route('article',[ $article['id'] ]) }}"></div>
                 <!-- 多说评论框 end -->
 
             </div>
@@ -85,9 +85,9 @@
                 <div class="sidebar-chunk article-hot box-shadow">
                     <p class="sc-label inline-block">最热文章</p>
                     <ul class="list-unstyled font-serif">
-                        @foreach($hotArticles as $row)
-                            <li><a href="/article/{{ $row['thread_key'] }}">{{ $row['title'] }}</a>
-                                <span class="comment">&nbsp;&nbsp;-&nbsp;&nbsp;{{ $row['comments'] }} 评论</span>
+                        @foreach($hotArticles as $article)
+                            <li><a href="{{ route('article',[ $article['thread_key'] ]) }}">{{ $article['title'] }}</a>
+                                <span class="comment">&nbsp;&nbsp;-&nbsp;&nbsp;{{ $article['comments'] }} 评论</span>
                             </li>
                         @endforeach
                     </ul>

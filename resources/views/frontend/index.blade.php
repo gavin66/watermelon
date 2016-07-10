@@ -9,7 +9,7 @@
                         <div class="article-list-header">
                             <h3 class="title font-serif">
                                 <a class="post-title-link" itemprop="url"
-                                   href="/article/{{ $v['id'] }}">{{ $v['title'] }}</a>
+                                   href="{{ route('article',[$v['id']]) }}">{{ $v['title'] }}</a>
                                 <small class="time">
                                     <i class="fa fa-calendar"></i>
                                     {{ $v['created_at'] }}
@@ -23,27 +23,27 @@
                         <div class="article-list-footer">
                             <div class="wm-category inline-block">
                                 @if( !is_null($v['categories']) )
-                                    @foreach(json_decode($v['categories'],1) as $item)
-                                        @include(' layouts/tagger', ['tag' => $item])
+                                    @foreach(json_decode($v['categories'],1) as $category)
+                                        @include(' layouts/tagger', [ 'key'=>'categories', 'item' => $category])
                                     @endforeach
                                 @endif
                             </div>
                             <div class="wm-tag inline-block">
                                 @if(!is_null($v['tags']))
-                                    @foreach(json_decode($v['tags'],1) as $item)
-                                        @include(' layouts/tagger', ['tag' => $item])
+                                    @foreach(json_decode($v['tags'],1) as $tag)
+                                        @include(' layouts/tagger', [ 'key' => 'tags', 'item' => $tag ])
                                     @endforeach
                                 @endif
                             </div>
                             <div class="more pull-right">
-                                <a class="wm-label vm-label-scale wm-label-default" href="/article/{{ $v['id'] }}">More>></a>
+                                <a class="wm-label vm-label-scale wm-label-default" href="{{ route('article',[$v['id']]) }}">More>></a>
                             </div>
                         </div>
                     </article>
                 @endforeach
 
                 {{--分页--}}
-                @include('layouts/pagination', ['paginator' => $articles])
+                @include('layouts/pagination', [ 'paginator' => $articles,'paginator_params' => $paginator_params ])
 
             </section>
             <section class="col-sm-3">
@@ -59,7 +59,7 @@
                     <p class="sc-label inline-block">分类</p>
                     <ul class="list-unstyled font-serif">
                         @foreach(getCategoryCountData() as $category=>$num)
-                                <li><a href="javascript:void(0)">{{ $category }}</a></li>
+                                <li><a href="{{ url('?categories='.$category) }}">{{ $category }}</a></li>
                         @endforeach
                     </ul>
                 </div>
@@ -67,7 +67,7 @@
                     <p class="sc-label inline-block">最热文章</p>
                     <ul class="list-unstyled font-serif">
                         @foreach(DuoShuo::getHotArticles([],false) as $article)
-                            <li><a href="/article/{{ $article['thread_key'] }}">{{ $article['title'] }}</a>
+                            <li><a href="{{ route('article',[$article['thread_key']]) }}">{{ $article['title'] }}</a>
                                 <span class="comment">&nbsp;&nbsp;-&nbsp;&nbsp;{{ $article['comments'] }} 评论</span>
                             </li>
                         @endforeach

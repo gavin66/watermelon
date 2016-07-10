@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="{{ asset('/vendor/bootstrap-3.3.5/dist/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/vendor/font-awesome-4.5.0/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/vendor/animate.css-3.5.1/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/style/app.css') }}">
     <link rel="stylesheet" href="{{ asset('/style/backend/index.css') }}">
 
 </head>

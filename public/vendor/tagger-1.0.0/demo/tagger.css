@@ -1,0 +1,171 @@
+.tagger-piece {
+  cursor: default;
+  opacity: .75;
+  background-color: #777;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  font-weight: normal;
+  font-size: 12px;
+  color: #fff !important;
+  height: 20px;
+  line-height: 20px;
+  padding: 0 20px 0 5px;
+  position: relative;
+  margin: 5px 10px;
+}
+.tagger-piece:before {
+  content: " ";
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 0;
+  left: -20px;
+  border: 10px solid transparent;
+  border-right-color: #777;
+}
+.tagger-piece:hover {
+  opacity: 1;
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+}
+.tagger-piece .remove {
+  cursor: pointer;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: inline-block;
+  width: 17px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+.tagger-piece .remove:hover, .tagger-piece .remove:active {
+  text-decoration: none;
+}
+
+.tagger-piece-LightPink {
+  background-color: #ed5736;
+}
+.tagger-piece-LightPink:before {
+  border-right-color: #ed5736;
+}
+
+.tagger-piece-conifer {
+  background-color: #21a675;
+}
+.tagger-piece-conifer:before {
+  border-right-color: #21a675;
+}
+
+.tagger-piece-sauce {
+  background-color: #815476;
+}
+.tagger-piece-sauce:before {
+  border-right-color: #815476;
+}
+
+.tagger-piece-RedGold {
+  background-color: #f2be45;
+}
+.tagger-piece-RedGold:before {
+  border-right-color: #f2be45;
+}
+
+.tagger-piece-ultramarine {
+  background-color: #4c8dae;
+}
+.tagger-piece-ultramarine:before {
+  border-right-color: #4c8dae;
+}
+
+.tagger-piece-swarthy {
+  background-color: #665757;
+}
+.tagger-piece-swarthy:before {
+  border-right-color: #665757;
+}
+
+.tagger-piece-ink {
+  background-color: #50616d;
+}
+.tagger-piece-ink:before {
+  border-right-color: #50616d;
+}
+
+.tagger-piece-amber {
+  background-color: #ca6924;
+}
+.tagger-piece-amber:before {
+  border-right-color: #ca6924;
+}
+
+.tagger-box {
+  position: relative;
+}
+.tagger-box .tagger-input {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+.tagger-box .tagger-input:focus {
+  outline: 0;
+}
+.tagger-box .tagger-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  width: 100%;
+  padding: 0;
+  font-size: 14px;
+  text-align: left;
+  list-style: none;
+  background-color: #fff;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border: 1px solid #ccc;
+  border-top: hidden;
+  border-radius: 0 0 3px 3px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  max-height: 200px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.tagger-box .tagger-dropdown-menu > li > a {
+  display: block;
+  padding: 5px 12px;
+  clear: both;
+  font-family: inherit;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #303030;
+  white-space: nowrap;
+  -webkit-font-smoothing: inherit;
+}
+.tagger-box .tagger-dropdown-menu > li > a:hover {
+  text-decoration: none;
+  color: #495c68;
+  background-color: #f5fafd;
+}
+.tagger-box.open .tagger-input {
+  border-radius: 3px 3px 0 0;
+}
+.tagger-box.open .tagger-dropdown-menu {
+  display: block;
+}

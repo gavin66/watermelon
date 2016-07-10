@@ -5,6 +5,10 @@ return [
     // 任务调度
     // * * * * * php /var/www/github/watermelon/artisan schedule:run 1>> /dev/null 2>&1
 
+    // 数据库备份 修改PHP
+    // /var/www/github/watermelon/vendor/backup-manager/laravel/src/Laravel51Compatibility.php
+    // /var/www/github/watermelon/vendor/backup-manager/laravel/src/AutoComplete.php
+
     /*
     |--------------------------------------------------------------------------
     | 当前博客的版本号
