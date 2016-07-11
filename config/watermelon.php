@@ -5,7 +5,7 @@ return [
     // 任务调度
     // * * * * * php /var/www/github/watermelon/artisan schedule:run 1>> /dev/null 2>&1
 
-    // 数据库备份 修改PHP
+    // 数据库备份 修改PHP文件
     // /var/www/github/watermelon/vendor/backup-manager/laravel/src/Laravel51Compatibility.php
     // /var/www/github/watermelon/vendor/backup-manager/laravel/src/AutoComplete.php
 
@@ -30,7 +30,7 @@ return [
     | 日志
     |--------------------------------------------------------------------------
     */
-    'console_count_tag_category_log' => '/var/www/github/logs', // 更新标签云 日志位置
+    'schedule_log' => '/var/www/github/logs', // 更新标签云 日志位置
 
 
     /*

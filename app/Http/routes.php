@@ -54,8 +54,9 @@ Route::get('mainTest', function () {
 //
 //    dd($archive);
 
-    dd(DuoShuo::getCommentsCountByArticleId(2));
+//    dd(DuoShuo::getCommentsCountByArticleId(2));
 
+    dd(env('MAIL_NAME',null));
 
 });
 

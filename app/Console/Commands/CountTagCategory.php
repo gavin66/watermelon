@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Model\Article;
+use Carbon\Carbon;
 use Illuminate\Console\Command;
 use RedisManager;
 
@@ -63,6 +64,6 @@ class CountTagCategory extends Command {
 
         });
 
-        $this->info(date('Y-m-d H:i:s') . ' 统计博客标签和分类数量成功.');
+        $this->info(Carbon::now()->toDateTimeString() . ' watermelon:count-tag-category 统计博客标签和分类数量成功.');
     }
 }

@@ -14,6 +14,7 @@ class Kernel extends ConsoleKernel {
     protected $commands = [
 //         Commands\Inspire::class,
         Commands\CountTagCategory::class,
+        Commands\DatabaseBackup::class,
     ];
 
     /**
@@ -29,10 +30,15 @@ class Kernel extends ConsoleKernel {
 
         // 更新标签
         $schedule->command('watermelon:count-tag-category')
-                 ->everyFiveMinutes()
-                 ->withoutOverlapping()
-                 ->appendOutputTo(config('watermelon.console_count_tag_category_log'));
+            ->everyFiveMinutes()
+            ->withoutOverlapping()
+            ->appendOutputTo(config('watermelon.schedule_log'));
 
+        // 数据库备份
+        $schedule->command('watermelon:database-backup')
+            ->daily()
+            ->withoutOverlapping()
+            ->appendOutputTo(config('watermelon.schedule_log'));
 
     }
 }
