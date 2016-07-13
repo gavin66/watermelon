@@ -77,7 +77,7 @@ seajs.use(deps, function($,_,editormd,toastr) {
         tags: $tag_container.attr('data-tags') ? JSON.parse($tag_container.attr('data-tags')) : [],
         dropdown:{
             load: {
-                url: 'http://127.0.0.1/data.json',
+                url: '/api/getTags.json',
                 type: 'GET',
                 dataType: 'json',
                 success: function(data){
@@ -94,7 +94,7 @@ seajs.use(deps, function($,_,editormd,toastr) {
         tags: $category_container.attr('data-categories') ? JSON.parse($category_container.attr('data-categories')) : [],
         dropdown:{
             load: {
-                url: 'http://127.0.0.1/data.json',
+                url: '/api/getCategories.json',
                 type: 'GET',
                 dataType: 'json',
                 success: function(data){

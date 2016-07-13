@@ -36,7 +36,8 @@ module.exports = function(grunt) {
       },
       dev: {
         files:{
-          '../public/style/app.css': 'scss/app.scss'
+          '../public/style/app.css': 'scss/app.scss',
+          '../public/style/auth/index.css': 'scss/auth/index.scss'
         }
       }
     },

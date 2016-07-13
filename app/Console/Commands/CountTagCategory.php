@@ -63,7 +63,7 @@ class CountTagCategory extends Command {
             }
 
         });
-
+//php artisan make:console BuildRedisData --command=watermelon:build-redis-data
         $this->info(Carbon::now()->toDateTimeString() . ' watermelon:count-tag-category 统计博客标签和分类数量成功.');
     }
 }

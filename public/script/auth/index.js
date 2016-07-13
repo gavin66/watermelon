@@ -7,60 +7,93 @@ var deps = [
     "particlesJS"
 ];
 
-seajs.use(deps, function() {
+seajs.use(deps, function () {
     // 切换登录,注册标签时,修改下方滑动块的样式
     $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-        if($(e.target).text() === '登录'){
-            $('.tab-slider-line').css('left',0);
-            $('#id-but-signUp').removeClass('tab_select_add_color');
-            $('#id-but-signIn').addClass('tab_select_add_color');
-        }else if($(e.target).text() === '注册'){
-            $('.tab-slider-line').css('left','6.4rem');
-            $('#id-but-signIn').removeClass('tab_select_add_color');
-            $('#id-but-signUp').addClass('tab_select_add_color');
+        var $toggle_login = $('#toggle-login');
+        var $toggle_register = $('#toggle-register');
+
+        if ($(e.target).text() === '登录') {
+            $('.tab-slider-line').css('left', 0);
+            $toggle_register.removeClass('tab_select_add_color');
+            $toggle_login.addClass('tab_select_add_color');
+        } else if ($(e.target).text() === '注册') {
+            $('.tab-slider-line').css('left', '6.4rem');
+            $toggle_login.removeClass('tab_select_add_color');
+            $toggle_register.addClass('tab_select_add_color');
         }
     });
 
     // 点击验证码切换
-    $('.group-inputs > .captcha').on('click',function(){
-        var url = '/captcha/blog_signUp?' + new Date().getTime();
-        $(this).attr('src',url);
+    $('.group-inputs').find('img.captcha').on('click', function () {
+        var url = '/captcha/register?' + new Date().getTime();
+        $(this).attr('src', url);
     });
 
     // 登录表单验证与提交
-    $('#btn-sign-in').on('click',function(){
+    $('#btn-login').on('click', function () {
         $.ajax({
-            url:'/auth/login',
-            method:'post',
-            cache:false,
-            data:$('#form-sign-in').serializeJson(),
-            dataType:'json',
-            success:function(data){
+            url: '/auth/login',
+            method: 'post',
+            cache: false,
+            data: $('#form-login').serializeJson(),
+            dataType: 'json',
+            success: function (data) {
                 window.location.href = data.redirectPath;
             },
-            error: function(xhr,testStatus,errorThrown){
-                console.log(xhr.responseJSON);
+            error: function (xhr, testStatus, errorThrown) {
+                //console.debug(xhr.responseJSON);
+                validateEleCreate(xhr.responseJSON, '#form-login');
             }
         });
 
     });
 
     // 注册表单验证与提交
-    $('#btn-sign-up').on('click',function(){
+    $('#btn-register').on('click', function () {
         $.ajax({
-            url:'/auth/register',
-            method:'post',
-            cache:false,
-            data:$('#form-sign-up').serializeJson(),
-            dataType:'json',
-            success:function(data){
+            url: '/auth/register',
+            method: 'post',
+            cache: false,
+            data: $('#form-register').serializeJson(),
+            dataType: 'json',
+            success: function (data) {
                 window.location.href = data.redirectPath;
             },
-            error:function(xhr,testStatus,errorThrown){
-                console.log(xhr.responseJSON);
+            error: function (xhr, testStatus, errorThrown) {
+                $('.group-inputs').find('img.captcha').trigger('click');
+                validateEleCreate(xhr.responseJSON, '#form-register');
             }
         });
     });
+
+    var validateEleCreate = function (obj, id) {
+        var label = null;
+        var $label = null;
+        var $input = null;
+        $.each(obj, function (key, value) {
+            $input = $(id).find('input[name=' + key + ']');
+            // 输入框下没有 label 才会创建
+            if (!$input.next('label').length && !$input.next('img').next('label').length ) {
+                label = document.createElement('label');
+                $label = $(label);
+
+                label.appendChild(document.createTextNode(value)); // 创建 label 元素,错误信息
+                $input.parent('div.input-wrapper').append(label); // 插入 dom 中
+                $label.addClass('error').timeOutEnd($.proxy(function () {
+                    this.addClass('is-visible');
+                }, $label), 0); // 为 label 添加样式
+                // 输入框获取焦点,删除本输入框下的 label 元素
+                $input.on('focus', $.proxy( function () {
+                    var $ele = this;
+                    $ele.removeClass('is-visible').timeOutEnd(function () {
+                        $ele.remove();
+                    }, 250);
+                },$label));
+            }
+        });
+
+    };
 
     // 粒子初始化,加载json文件
     //particlesJS.load('particles-js', '/script/config/particlesJS-signInUp.json', function() {});

@@ -54,7 +54,7 @@ seajs.use(deps, function($,editormd) {
 
         // 为我点赞
         $('#thumbs-up').on('click',function(){
-            $.get('/thumbsUp',{},function(data){
+            $.get('/api/thumbsUp',{},function(data){
                 $('.thumbs-up-count').text(data.count);
             },'json');
         });

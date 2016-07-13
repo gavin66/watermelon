@@ -235,5 +235,11 @@ define(function (require, exports, module) {
 
     };
 
+    $.fn.timeOutEnd = function (fun,time) {
+        window.setTimeout(fun,time);
+
+        return this;
+    };
+
     return $;
 });

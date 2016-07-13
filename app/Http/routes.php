@@ -64,7 +64,10 @@ Route::get('data.json',function(){
 //    return json_encode(['javascript','php','python','html5','nginx','redis']);
 
 //    return response()->header('Access-Control-Allow-Origin', '*')->json(['javascript','php','python','html5','nginx','redis']);
-    return response()->json(['remote-javascript','remote-php','remote-python','remote-html5','remote-nginx','remote-redis'])->header('Access-Control-Allow-Origin', '*');
+
+    echo RedisManager::command('GET',['watermelon_categories']);
+//    dd($arr);
+//    return response()->json(['remote-javascript','remote-php','remote-python','remote-html5','remote-nginx','remote-redis'])->header('Access-Control-Allow-Origin', '*');
 });
 //Route::get('httpTest', function () {
 //    $client = new \GuzzleHttp\Client([
@@ -167,10 +170,24 @@ Route::group([ 'namespace' => 'Frontend' ], function () {
     // 关于我
     Route::get('about', 'FrontendController@about');
 
+});
+
+/**
+ * api
+ */
+Route::group([ 'prefix' => 'api' ], function () {
+
     // 点赞
-    Route::get('thumbsUp', 'FrontendController@thumbsUp');
+    Route::get('thumbsUp', 'APIController@thumbsUp');
+
+    // 获取标签
+    Route::get('getTags.json', 'APIController@getTags');
+
+    // 获取分类
+    Route::get('getCategories.json', 'APIController@getCategories');
 
 });
+
 
 
 /**

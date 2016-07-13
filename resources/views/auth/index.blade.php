@@ -30,8 +30,8 @@
 			</div>
 			<div class="body">
 				<div class="tab-select">
-					<a class="tab_select_add_color" href="#sign-in" aria-controls="sign-in" role="tab" data-toggle="tab" id="id-but-signIn">登录</a>
-					<a href="#sign-up" aria-controls="sign-up" role="tab" data-toggle="tab" id="id-but-signUp">注册</a>
+					<a class="tab_select_add_color" href="#tab-login" aria-controls="tab-login" role="tab" data-toggle="tab" id="toggle-login">登录</a>
+					<a href="#tab-register" aria-controls="tab-register" role="tab" data-toggle="tab" id="toggle-register">注册</a>
 					<span class="tab-slider-line"></span>
 				</div>
 				@if (count($errors) > 0)
@@ -45,14 +45,18 @@
 					</div>
 				@endif
 				<div class="tab-content">
-					<div role="tabPanel" class="tab-pane active" id="sign-in">
-						<form id="form-sign-in" role="form">
+					<div role="tabPanel" class="tab-pane active" id="tab-login">
+						<form id="form-login" role="form">
 							<div class="group-inputs">
-								<input type="email" class="form-control-blog" name="email" placeholder="邮箱" value="{{ old('email') }}">
-								<input type="password" class="form-control-blog" name="password" placeholder="密码">
+								<div class="input-wrapper">
+									<input type="email" class="form-control-blog" name="email" placeholder="邮箱" value="{{ old('email') }}">
+								</div>
+								<div class="input-wrapper">
+									<input type="password" class="form-control-blog" name="password" placeholder="密码">
+								</div>
 							</div>
 							<div class="wrapper-button">
-								<button id="btn-sign-in" type="button" class="btn btn-primary btn-lg btn-block">登录</button>
+								<button id="btn-login" type="button" class="btn btn-primary btn-lg btn-block">登录</button>
 							</div>
 							<div class="remember-wrapper">
 								<label class="remember-me">
@@ -62,18 +66,25 @@
 							</div>
 						</form>
 					</div>
-					<div role="tabPanel" class="tab-pane" id="sign-up">
-						<form id="form-sign-up" role="form">
+					<div role="tabPanel" class="tab-pane" id="tab-register">
+						<form id="form-register" role="form">
 							<div class="group-inputs">
-								<input type="text" class="form-control-blog" name="name" placeholder="姓名">
-								<input type="email" class="form-control-blog" name="email" placeholder="邮箱">
-								<input type="password" class="form-control-blog" name="password" placeholder="密码 (不少于 6 位)">
-								<input type="text" class="form-control-blog" name="captcha" placeholder="验证码">
-	{{--							<img class="captcha" src="{{ captcha_src('blog_signUp') }}" alt="验证码">--}}
-								<img class="captcha" src="/captcha/blog_signUp" alt="验证码">
+								<div class="input-wrapper">
+									<input type="text" class="form-control-blog" name="name" placeholder="姓名" autocomplete="off">
+								</div>
+								<div class="input-wrapper">
+									<input type="email" class="form-control-blog" name="email" placeholder="邮箱" autocomplete="off">
+								</div>
+								<div class="input-wrapper">
+									<input type="password" class="form-control-blog" name="password" placeholder="密码 (不少于 6 位)" autocomplete="off">
+								</div>
+								<div class="input-wrapper">
+									<input type="text" class="form-control-blog" name="captcha" placeholder="验证码" autocomplete="off">
+									<img class="captcha" src="{{ url('/captcha/register') }}" alt="验证码">
+								</div>
 							</div>
 							<div class="wrapper-button">
-								<button id="btn-sign-up" type="button" class="btn btn-primary btn-lg btn-block">注册</button>
+								<button id="btn-register" type="button" class="btn btn-primary btn-lg btn-block">注册</button>
 							</div>
 						</form>
 					</div>

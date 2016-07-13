@@ -98,27 +98,55 @@ a.cancelDefault:hover {
   padding: 3px 0;
   background-color: #fff;
 }
-.index-main .index-main-body .tab-content .group-inputs > .captcha {
-  position: absolute;
-  right: 0;
-  bottom: 0;
+.index-main .index-main-body .tab-content .group-inputs .input-wrapper {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
 }
-.index-main .index-main-body .tab-content .form-control-blog {
-  display: block;
-  border: none;
+.index-main .index-main-body .tab-content .group-inputs .input-wrapper input {
+  padding: 14px;
   width: 100%;
   outline: none;
-  padding: 1rem 0.8rem;
-  font-size: 1.4rem;
-  line-height: 1.42857143;
-  color: #515f6d;
+  border: 0;
 }
-.index-main .index-main-body .tab-content .form-control-blog:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0 30px white inset;
-  -webkit-text-fill-color: #515f6d;
+.index-main .index-main-body .tab-content .group-inputs .input-wrapper .captcha {
+  position: absolute;
+  top: 50%;
+  right: 1em;
+  margin-top: -19px;
+  width: 100px;
+  height: 38px;
 }
-.index-main .index-main-body .tab-content .form-control-blog + .form-control-blog {
+.index-main .index-main-body .tab-content .group-inputs .input-wrapper + .input-wrapper {
   border-top: 1px solid #e8ebee;
+}
+.index-main .index-main-body .tab-content .group-inputs .input-wrapper .error {
+  position: absolute;
+  top: 0;
+  right: 8px;
+  padding: 0 8px;
+  line-height: 48px;
+  color: #c33;
+  cursor: text;
+  background: #fff;
+  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0), #fff 8px);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), #fff 8px);
+  visibility: hidden;
+  opacity: 0;
+  -ms-filter: "alpha(Opacity=0)";
+  -webkit-transform: translate(20px, 0);
+  -ms-transform: translate(20px, 0);
+  transform: translate(20px, 0);
+  -webkit-transition: .25s ease-out;
+  transition: .25s ease-out;
+}
+.index-main .index-main-body .tab-content .group-inputs .input-wrapper .is-visible {
+  visibility: visible;
+  opacity: 1;
+  -ms-filter: "alpha(Opacity=100)";
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
 }
 .index-main .index-main-body .tab-content .wrapper-button {
   margin-top: 2rem;
