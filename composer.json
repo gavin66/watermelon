@@ -13,7 +13,8 @@
         "predis/predis": "^1.1",
         "guzzlehttp/guzzle": "^6.2",
         "backup-manager/laravel": "^1.1",
-        "league/flysystem-dropbox": "^1.0"
+        "league/flysystem-dropbox": "^1.0",
+        "dflydev/apache-mime-types": "^1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

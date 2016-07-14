@@ -48,7 +48,7 @@ a.cancelDefault:hover {
   margin: 0 0 1.5rem;
   font-weight: 700;
   font-size: 3.6rem;
-  color: #0185DD;
+  color: #0f88eb;
 }
 .index-main .index-main-body > .header > .subtitle {
   margin: 0 0 2rem;
@@ -71,11 +71,11 @@ a.cancelDefault:hover {
   font-weight: 500;
 }
 .index-main .index-main-body .tab-select > a:hover, .index-main .index-main-body .tab-select > a:focus {
-  color: #0185DD;
+  color: #0f88eb;
   text-decoration: none;
 }
 .tab_select_add_color {
-  color: #0185DD !important;
+  color: #0f88eb !important;
 }
 .index-main .index-main-body .tab-select > .tab-slider-line {
   position: absolute;
@@ -84,7 +84,7 @@ a.cancelDefault:hover {
   margin: 0 1rem;
   width: 4rem;
   height: 2px;
-  background: #0185DD;
+  background: #0f88eb;
   -webkit-transition: left .15s ease-in;
   transition: left .15s ease-in;
 }
@@ -108,6 +108,10 @@ a.cancelDefault:hover {
   width: 100%;
   outline: none;
   border: 0;
+}
+.index-main .index-main-body .tab-content .group-inputs .input-wrapper input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px white inset;
+  -webkit-text-fill-color: #515f6d;
 }
 .index-main .index-main-body .tab-content .group-inputs .input-wrapper .captcha {
   position: absolute;
@@ -152,13 +156,13 @@ a.cancelDefault:hover {
   margin-top: 2rem;
 }
 .index-main .index-main-body .tab-content .wrapper-button > button {
-  background-color: #13a0fe;
+  background-color: #0f88eb;
   border-radius: 4px;
   border-color: transparent;
   outline: none;
 }
 .index-main .index-main-body .tab-content .wrapper-button > button:hover, .index-main .index-main-body .tab-content .wrapper-button > button:focus {
-  background-color: #0185DD;
+  background-color: #55abed;
 }
 .index-main .index-main-body .tab-content .remember-wrapper {
   margin-top: 2rem;

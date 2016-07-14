@@ -9,6 +9,23 @@ return [
     // /var/www/github/watermelon/vendor/backup-manager/laravel/src/Laravel51Compatibility.php
     // /var/www/github/watermelon/vendor/backup-manager/laravel/src/AutoComplete.php
 
+
+    'title' => 'My Blog',
+    'posts_per_page' => 5,
+
+    'uploads' => [
+        'storage' => 'local',
+        'webpath' => '/uploads',
+    ],
+
+    'upload' => [
+        'image' => public_path('upload/image'),
+        'video' => public_path('upload/video'),
+        'audio' => public_path('upload/audio')
+    ],
+
+
+
     /*
     |--------------------------------------------------------------------------
     | 当前博客的版本号

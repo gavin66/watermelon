@@ -186,6 +186,9 @@ Route::group([ 'prefix' => 'api' ], function () {
     // 获取分类
     Route::get('getCategories.json', 'APIController@getCategories');
 
+    // 上传文件
+    Route::post('upload', 'APIController@upload');
+
 });
 
 

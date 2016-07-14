@@ -48,6 +48,13 @@ return [
             'root' => storage_path('app'),
         ],
 
+        'upload_image' => [
+            'driver' => 'local',
+            'root' => config('watermelon.upload.image')
+        ],
+
+
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),

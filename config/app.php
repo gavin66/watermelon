@@ -110,7 +110,7 @@ return [
     |
     */
 
-    'log' => env('APP_LOG', 'single'),
+    'log' => env('APP_LOG', 'daily'),
 
     /*
     |--------------------------------------------------------------------------
@@ -157,6 +157,7 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
         // 数据库备份 还原,支持云存储 Amazon s3, dropbox, rackspace, sftp
         BackupManager\Laravel\Laravel5ServiceProvider::class,
 

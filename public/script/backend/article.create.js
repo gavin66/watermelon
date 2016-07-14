@@ -57,7 +57,7 @@ seajs.use(deps, function($,_,editormd,toastr) {
         //dialogMaskBgColor : "#000", // 设置透明遮罩层的背景颜色，全局通用，默认为 #fff
         imageUpload : true,
         imageFormats : ['jpg', 'jpeg', 'gif', 'png', 'bmp', 'webp'],
-        imageUploadURL : './php/upload.php',
+        imageUploadURL : '/api/upload',
         onload: function(){
             this.setMarkdown($('#edit-md-text').val());
             //this.fullscreen();
