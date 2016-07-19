@@ -2,8 +2,9 @@
  * Created by Gavin on 16/2/15.
  */
 var deps = [
-    'jqueryExt',
+    'jquery',
     'toastr',
+    'jqueryWatermelon',
     'seajs_css'
 ];
 seajs.use(deps,function($,toastr){

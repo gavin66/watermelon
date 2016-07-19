@@ -2,12 +2,13 @@
  * Created by Gavin on 16/2/15.
  */
 var deps = [
-    "jqueryExt",
+    "jquery",
+    "jqueryWatermelon",
     "bootstrap",
     "particlesJS"
 ];
 
-seajs.use(deps, function () {
+seajs.use(deps, function ($) {
     // 切换登录,注册标签时,修改下方滑动块的样式
     $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
         var $toggle_login = $('#toggle-login');

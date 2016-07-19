@@ -10,7 +10,7 @@ return [
     // /var/www/github/watermelon/vendor/backup-manager/laravel/src/AutoComplete.php
 
 
-    'title' => 'My Blog',
+    'title'          => 'My Blog',
     'posts_per_page' => 5,
 
     'uploads' => [
@@ -18,12 +18,11 @@ return [
         'webpath' => '/uploads',
     ],
 
-    'upload' => [
+    'upload'                     => [
         'image' => public_path('upload/image'),
         'video' => public_path('upload/video'),
         'audio' => public_path('upload/audio')
     ],
-
 
 
     /*
@@ -31,7 +30,7 @@ return [
     | 当前博客的版本号
     |--------------------------------------------------------------------------
     */
-    'version'                => '1.0.0',
+    'version'                    => '1.0.0',
 
 
     /*
@@ -47,7 +46,7 @@ return [
     | 日志
     |--------------------------------------------------------------------------
     */
-    'schedule_log' => '/var/www/github/logs', // 更新标签云 日志位置
+    'schedule_log'               => '/var/www/github/logs', // 更新标签云 日志位置
 
 
     /*
@@ -55,10 +54,12 @@ return [
     | 后台项的链接URL
     |--------------------------------------------------------------------------
     */
-    'backend_article'        => '/backend/article', // 文章列表
-    'backend_article_create' => '/backend/article/create', // 新增文章
-    'backend_category'       => '/backend/category', // 分类
-    'backend_tag'            => '/backend/tag', // 标签
+    'backend_article'            => '/backend/article', // 文章列表
+    'backend_article_create'     => '/backend/article/create', // 新增文章
+    'backend_category'           => '/backend/category', // 分类
+    'backend_tag'                => '/backend/tag', // 标签
+    'backend_media'              => '/backend/media', // 多媒体
+    'backend_media_create'       => '/backend/media/create', // 新增多媒体
 
 
     /*
@@ -66,18 +67,18 @@ return [
     | 多说
     |--------------------------------------------------------------------------
     */
-    'ds_secret'              => '2c4b0204f13941e02891f304f505ebbf', // 密钥
-    'ds_short_name'          => 'watermelon-api',
-    'ds_range'               => 'monthly', //
-    'ds_num_items'           => 5,
+    'ds_secret'                  => '2c4b0204f13941e02891f304f505ebbf', // 密钥
+    'ds_short_name'              => 'watermelon-api',
+    'ds_range'                   => 'monthly', //
+    'ds_num_items'               => 5,
 
     /*
     |--------------------------------------------------------------------------
     | 数据请求返回码
     |--------------------------------------------------------------------------
     */
-    '0'                      => '',
-    '-1'                     => '系统错误,请稍后重试 !',
-    '30001'                  => '测试码',
+    '0'                          => '',
+    '-1'                         => '系统错误,请稍后重试 !',
+    '30001'                      => '测试码',
 
 ];

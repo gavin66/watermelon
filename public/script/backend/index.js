@@ -2,13 +2,15 @@
  * Created by Gavin on 16/1/30.
  */
 var deps = [
+    'jquery',
     'bootstrap',
     'pjax',
     'metisMenu',
-    'jquery_sidebar'
+    'jquery_sidebar',
+    'jqueryWatermelon'
 ];
 
-seajs.use(deps, function() {
+seajs.use(deps, function($) {
     $('[data-toggle="tooltip"]').tooltip();
     $('[data-toggle="popover"]').popover();
 
@@ -17,7 +19,9 @@ seajs.use(deps, function() {
         autoClose: false
     });
 
-    $('#metisMenu').metisMenu();
+    $('#metisMenu').metisMenu({
+        toggle:  true // 自动折叠
+    });
 
     $(document).pjax('a[data-pjax=true]', '#pjax-container',
         {

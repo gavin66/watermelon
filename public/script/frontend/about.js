@@ -13,11 +13,12 @@ var duoshuoQuery = {short_name: "watermelon-api"};
 })();
 
 var deps = [
-    'jqueryExt',
+    'jquery',
     'editormd',
     'bootstrap',
     'scrollspy',
     'APlayer',
+    'jqueryWatermelon',
     'editor.md-1.5.0/lib/underscore.min',
     'editor.md-1.5.0/lib/flowchart.min',
     'editor.md-1.5.0/lib/jquery.flowchart',

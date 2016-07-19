@@ -1,9 +1,8 @@
 /vendor
 /resources/node_modules
 /storage
-/public/upload/audio
-/public/upload/image
-/public/upload/video
+/public/upload/
 _ide_helper.php
 .env
 .idea
+/resources/test

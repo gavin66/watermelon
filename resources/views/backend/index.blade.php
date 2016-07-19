@@ -108,28 +108,28 @@
                         </ul>
                     </div>
                 </li>
-                <li class="active">
+                <li>
                     <a class="item-link" href="#" aria-expanded="true">
                         <i class="glyphicon glyphicon-book" aria-hidden="true"></i>
                         <span class="">文章</span>
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="item-list" aria-expanded="true">
-                        <li><a id="backend_article" href="{{ config('watermelon.backend_article') }}" data-pjax="true">文章列表</a></li>
-                        <li><a id="backend_article_create" href="{{ config('watermelon.backend_article_create') }}" data-pjax="true">写文章</a></li>
-                        <li><a id="backend_category" href="{{ config('watermelon.backend_category') }}" data-pjax="true">分类</a></li>
-                        <li><a id="backend_tag" href="{{ config('watermelon.backend_tag') }}" data-pjax="true">标签</a></li>
+                        <li><a id="backend_article" href="{{ url(config('watermelon.backend_article')) }}" data-pjax="true">文章列表</a></li>
+                        <li><a id="backend_article_create" href="{{ url(config('watermelon.backend_article_create')) }}" data-pjax="true">写文章</a></li>
+                        <li><a id="backend_category" href="{{ url(config('watermelon.backend_category')) }}" data-pjax="true">分类</a></li>
+                        <li><a id="backend_tag" href="{{ url(config('watermelon.backend_tag')) }}" data-pjax="true">标签</a></li>
                     </ul>
                 </li>
-                <li>
+                <li class="active">
                     <a class="item-link" href="#" aria-expanded="false">
                         <i class="glyphicon glyphicon-film" aria-hidden="true"></i>
                         <span>多媒体</span>
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="item-list" aria-expanded="false">
-                        <li><a href="#">媒体库</a></li>
-                        <li><a href="#">添加</a></li>
+                        <li><a id="backend_media" href="{{ url(config('watermelon.backend_media')) }}" data-pjax="true">媒体库</a></li>
+                        <li><a id="backend_media_create" href="{{ url(config('watermelon.backend_media_create')) }}" data-pjax="true">添加</a></li>
                     </ul>
                 </li>
                 <li>

@@ -52,8 +52,14 @@ return [
             'driver' => 'local',
             'root' => config('watermelon.upload.image')
         ],
-
-
+        'upload_audio' => [
+            'driver' => 'local',
+            'root' => config('watermelon.upload.audio')
+        ],
+        'upload_video' => [
+            'driver' => 'local',
+            'root' => config('watermelon.upload.video')
+        ],
 
         'public' => [
             'driver' => 'local',

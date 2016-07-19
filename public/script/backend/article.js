@@ -3,13 +3,14 @@
  */
 
 var deps = [
-    'jqueryExt',
+    'jquery',
     'toastr',
     'pjax',
     'bootstrap',
     'bootstrap_table',
     'bootstrap_table_locale',
     'sweetalert',
+    'jqueryWatermelon',
     'seajs_css'
 ];
 

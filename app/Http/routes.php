@@ -56,18 +56,34 @@ Route::get('mainTest', function () {
 
 //    dd(DuoShuo::getCommentsCountByArticleId(2));
 
-    dd(env('MAIL_NAME',null));
+//    dd(env('MAIL_NAME',null));
+//    dd($_SERVER);
+//    dd(Auth::check());
+//    dd(Auth::user());
+//    dd(Auth::user()->email);
 
+//    dd(dirname('/var/www/github/watermelon/public/files/64e1b8d34f425d19e1ee2ea7236d3028/yui-005.jpg'));
+    $a = $file = \App\Model\File::findOrFail(2);
+
+    $file_path = $a->absolute_path;
+    $file_name = basename($file_path);
+    $dir_name = dirname($file_path);
+
+    $re = [$file_path,$file_name,$dir_name];
+
+
+    dd($re);
 });
 
-Route::get('data.json',function(){
+
+Route::any('data.json',function(){
 //    return json_encode(['javascript','php','python','html5','nginx','redis']);
 
 //    return response()->header('Access-Control-Allow-Origin', '*')->json(['javascript','php','python','html5','nginx','redis']);
 
-    echo RedisManager::command('GET',['watermelon_categories']);
+//    echo RedisManager::command('GET',['watermelon_categories']);
 //    dd($arr);
-//    return response()->json(['remote-javascript','remote-php','remote-python','remote-html5','remote-nginx','remote-redis'])->header('Access-Control-Allow-Origin', '*');
+    return response()->json(['remote-javascript','remote-php','remote-python','remote-html5','remote-nginx','remote-redis'])->header('Access-Control-Allow-Origin', '*');
 });
 //Route::get('httpTest', function () {
 //    $client = new \GuzzleHttp\Client([
@@ -186,8 +202,8 @@ Route::group([ 'prefix' => 'api' ], function () {
     // 获取分类
     Route::get('getCategories.json', 'APIController@getCategories');
 
-    // 上传文件
-    Route::post('upload', 'APIController@upload');
+    // 获取文件
+    Route::get('getFiles.json','APIController@getFiles');
 
 });
 
@@ -240,8 +256,12 @@ Route::group([ 'namespace' => 'Backend', 'middleware' => [ 'auth', 'web' ] ], fu
          */
         //文章
         Route::resource('article', 'ArticleController');
+        // 分类
         Route::resource('category', 'CategoryController');
+        // 标签
         Route::resource('tag', 'TagController');
+        // 多媒体
+        Route::resource('media', 'MediaController');
 
     });
 });

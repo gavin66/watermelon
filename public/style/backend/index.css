@@ -195,11 +195,16 @@ html, body, .jqsb-container, .jqsb-sidebar {
   display: inline;
 }
 
+.clear-margin {
+  margin: 0;
+}
+
 a.cancelDefault:hover {
   text-decoration: none;
   cursor: pointer;
   color: inherit;
 }
+
 /*------------------------------------*\
     导航栏样式 &navbar
 \*------------------------------------*/
@@ -377,6 +382,9 @@ a.cancelDefault:hover {
   border-bottom-color: #343d47;
 }
 
+/*------------------------------------*\
+    中间pjax-container容器
+\*------------------------------------*/
 #pjax-container {
   height: calc(100vh - 81px);
   overflow: auto;
@@ -416,4 +424,92 @@ a.cancelDefault:hover {
 
 .toast-close-button {
   line-height: 20px;
+}
+
+/*------------------------------------*\
+    媒体库
+\*------------------------------------*/
+.media-toolbar {
+  padding: 10px;
+  margin-bottom: 15px;
+  height: auto;
+  display: inline-block;
+  width: 100%;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+  border: 1px solid #e5e5e5;
+  background: #fff;
+}
+
+.fileinput-button {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+.fileinput-button input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  opacity: 0;
+  -ms-filter: 'alpha(opacity=0)';
+  font-size: 200px !important;
+  direction: ltr;
+  cursor: pointer;
+}
+
+.attachment {
+  padding: 8px !important;
+  float: left;
+  width: 12.5%;
+}
+.attachment .attachment-preview {
+  position: relative;
+  -webkit-box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+  background: #eee;
+  cursor: pointer;
+}
+.attachment .attachment-preview:before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+.attachment .attachment-preview .upload-button {
+  text-align: center;
+  top: 50% !important;
+  margin-top: -11px;
+}
+.attachment .attachment-preview .upload-button:after {
+  content: none !important;
+}
+.attachment .attachment-preview .thumbnail-preview {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 1;
+  -webkit-transition: opacity .1s;
+  transition: opacity .1s;
+}
+.attachment .attachment-preview .thumbnail-preview .centered {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: translate(50%, 50%);
+  -ms-transform: translate(50%, 50%);
+  transform: translate(50%, 50%);
+}
+.attachment .attachment-preview .thumbnail-preview .centered img {
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-height: 100%;
+  border: none;
 }

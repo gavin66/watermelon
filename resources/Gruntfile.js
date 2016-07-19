@@ -37,7 +37,8 @@ module.exports = function(grunt) {
       dev: {
         files:{
           '../public/style/app.css': 'scss/app.scss',
-          '../public/style/auth/index.css': 'scss/auth/index.scss'
+          '../public/style/auth/index.css': 'scss/auth/index.scss',
+          '../public/style/backend/index.css': 'scss/backend/index.scss'
         }
       }
     },
@@ -77,7 +78,7 @@ module.exports = function(grunt) {
         options:{
           livereload:true
         },
-        files: 'demo/**'
+        files: ['test/script/**','test/style/**','test/index.html']
       }
     },
 
@@ -87,7 +88,7 @@ module.exports = function(grunt) {
           protocol: 'http',
           hostname: '127.0.0.1',
           port: 9001,
-          base: 'demo',
+          base: 'test',
           keepalive: true,
           livereload:true
         }

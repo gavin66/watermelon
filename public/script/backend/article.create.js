@@ -2,11 +2,12 @@
  * Created by Gavin on 16/2/19.
  */
 var deps = [
-    'jqueryExt',
+    'jquery',
     'lodash',
     'editormd',
     'toastr',
     'tagger',
+    'jqueryWatermelon',
     'editormd-plugins/link-dialog/link-dialog-debug',
     'editormd-plugins/reference-link-dialog/reference-link-dialog-debug',
     'editormd-plugins/image-dialog/image-dialog-debug',

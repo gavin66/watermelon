@@ -179,18 +179,19 @@ $baseSetting: (
         focusColor: #fff, // 获得焦点时的字体颜色
 );
 
-@at-root {
-  .block{
-    display: block;
-  }
-  .inline{
-    display: inline;
-  }
-  a.cancelDefault:hover{
-    text-decoration: none;
-    cursor: pointer;
-    color: inherit;
-  }
+.block{
+  display: block;
+}
+.inline{
+  display: inline;
+}
+.clear-margin{
+  margin: 0;
+}
+a.cancelDefault:hover{
+  text-decoration: none;
+  cursor: pointer;
+  color: inherit;
 }
 /*------------------------------------*\
     导航栏样式 &navbar
@@ -428,7 +429,10 @@ $sidebarSetting: (
 
 }
 
-// 中间pjax-container容器样式
+
+/*------------------------------------*\
+    中间pjax-container容器
+\*------------------------------------*/
 #pjax-container{
   height: calc(100vh - 81px);
   overflow: auto;
@@ -466,11 +470,115 @@ $sidebarSetting: (
   border-radius:0;
 }
 
-
 // toastr样式修改
 .toast-close-button{
   line-height: 20px;
 }
 
+/*------------------------------------*\
+    媒体库
+\*------------------------------------*/
+.media-toolbar{
+  padding: 10px;
+  margin-bottom: 15px;
+  height: auto;
+  display: inline-block;
+  width: 100%;
+  box-shadow: 0 1px 1px rgba(0,0,0,.04);
+  border: 1px solid #e5e5e5;
+  background: #fff;
+}
+
+.fileinput-button{
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  input{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    opacity: 0;
+    -ms-filter: 'alpha(opacity=0)';
+    font-size: 200px !important;
+    direction: ltr;
+    cursor: pointer;
+  }
+}
+
+.attachment {
+  padding: 8px !important;
+  float: left;
+  width: 12.5%;
+  .attachment-preview{
+    position: relative;
+    -webkit-box-shadow: inset 0 0 15px rgba(0, 0, 0, .1), inset 0 0 0 1px rgba(0, 0, 0, .05);
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, .1), inset 0 0 0 1px rgba(0, 0, 0, .05);
+    background: #eee;
+    cursor: pointer;
+
+    &:before{
+      content: "";
+      display: block;
+      padding-top: 100%;
+    }
+
+    .upload-button{
+      text-align: center;
+      top: 50% !important;
+      margin-top: -11px;
+      &:after{
+        content: none !important;
+      }
+    }
+
+    .thumbnail-preview {
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      opacity: 1;
+      -webkit-transition: opacity .1s;
+      transition: opacity .1s;
+
+      //&:after{
+      //  content: "";
+      //  display: block;
+      //  position: absolute;
+      //  top: 0;
+      //  left: 0;
+      //  right: 0;
+      //  bottom: 0;
+      //  -webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .1);
+      //  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .1);
+      //  overflow: hidden;
+      //}
+
+      .centered {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transform: translate(50%, 50%);
+        -ms-transform: translate(50%, 50%);
+        transform: translate(50%, 50%);
+
+        img{
+          -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+          position: absolute;
+          top: 0;
+          left: 0;
+          max-height: 100%;
+          border: none;
+        }
+      }
+    }
+  }
+}
 
 

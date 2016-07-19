@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-sm-12">
-        <h4 class="nav-title">撰写新文章</h4>
+        <h4 class="nav-title">写文章</h4>
     </div>
 </div>
 <div class="row">
