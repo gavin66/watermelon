@@ -48,19 +48,6 @@ return [
             'root' => storage_path('app'),
         ],
 
-        'upload_image' => [
-            'driver' => 'local',
-            'root' => config('watermelon.upload.image','')
-        ],
-        'upload_audio' => [
-            'driver' => 'local',
-            'root' => config('watermelon.upload.audio','')
-        ],
-        'upload_video' => [
-            'driver' => 'local',
-            'root' => config('watermelon.upload.video','')
-        ],
-
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),

@@ -34,9 +34,8 @@ return [
         'token' => env('DROPBOX_TOKEN',''),
         'key' => env('DROPBOX_KEY',''),
         'secret' => env('DROPBOX_SECRET',''),
-        'app' => env('watermelon-blog',''),
-        'root' => env('database-backup',''),
-
+        'app' => env('DROPBOX_APP',''),
+        'root' => env('DROPBOX_ROOT',''),
     ],
     'ftp' => [
         'type' => 'Ftp',
