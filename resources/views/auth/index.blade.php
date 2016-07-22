@@ -5,18 +5,18 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<!--移动设备优先,为了确保适当的绘制和触屏缩放，需要在 <head> 之中添加 viewport 元数据标签。-->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-	<meta name="renderer" content="webkit">
-	<meta name="keywords" content="博客,个人博客,Gavin的博客">
-	<meta name="description" content="这是Gavin的个人博客">
-	<!-- Laravel token 存放在 meta 标签中, 然后使用 jQuery 将它加入到所有的请求头中-->
-	<meta name="csrf-token" content="{{ csrf_token() }}" />
 	<!-- 在移动设备浏览器上，通过为视口（viewport）设置 meta 属性为 user-scalable=no 可以禁用其缩放（zooming）功能。
-        这样禁用缩放功能后，用户只能滚动屏幕，就能让你的网站看上去更像原生应用的感觉。注意，这种方式不推荐所有网站使用，需看情况而定-->
-	<!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">-->
-	{{--<link rel="shortcut icon" href="/favicon.ico">--}}
-
-	<title>@yield('title','Gavin\' Blog')</title>
+        这样禁用缩放功能后，用户只能滚动屏幕，就能让你的网站看上去更像原生应用的感觉。注意，这种方式不推荐所有网站使用，需看情况而定 -->
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> -->
+	<meta name="renderer" content="webkit">
+	<meta name="keywords" content="博客,个人博客">
+	<meta name="description" content="个人博客">
+	<!-- Laravel token 存放在 meta 标签中, 然后使用 jQuery 将它加入到所有的请求头中 -->
+	<meta name="csrf-token" content="{{ csrf_token()}}" />
+	<!-- 网站图标 -->
+	<link rel="shortcut icon" href="{{ asset('favicon.png') }}">
+	<!-- 网站标题 -->
+	<title>@yield('title',config('watermelon.title'))</title>
 
 	<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -26,7 +26,7 @@
 	<div class="index-main">
 		<div class="index-main-body">
 			<div class="header">
-				<p class="title">Gavin's Blog</p>
+				<p class="title">{{ config('watermelon.title') }}</p>
 				<p class="subtitle">宁愿小众,不愿平庸</p>
 			</div>
 			<div class="body">

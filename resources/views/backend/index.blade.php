@@ -4,18 +4,20 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!--移动设备优先,为了确保适当的绘制和触屏缩放，需要在 <head> 之中添加 viewport 元数据标签。-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0,user-scalable=no">
-    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 在移动设备浏览器上，通过为视口（viewport）设置 meta 属性为 user-scalable=no 可以禁用其缩放（zooming）功能。
-    这样禁用缩放功能后，用户只能滚动屏幕，就能让你的网站看上去更像原生应用的感觉。注意，这种方式不推荐所有网站使用，需看情况而定-->
+        这样禁用缩放功能后，用户只能滚动屏幕，就能让你的网站看上去更像原生应用的感觉。注意，这种方式不推荐所有网站使用，需看情况而定 -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> -->
     <meta name="renderer" content="webkit">
-    <meta name="keywords" content="博客,个人博客,Gavin的博客,田宇的博客">
-    <meta name="description" content="这是田宇(Gavin)的个人网站">
+    <meta name="keywords" content="博客,个人博客">
+    <meta name="description" content="个人博客">
     <!-- Laravel token 存放在 meta 标签中, 然后使用 jQuery 将它加入到所有的请求头中-->
     <meta name="csrf-token" content="{{ csrf_token()}}" />
-    {{--<link rel="shortcut icon" href="/favicon.ico">--}}
+    <!-- 网站图标 -->
+    <link rel="shortcut icon" href="{{ asset('favicon.png') }}">
 
-    <title>Gavin'blog</title>
+    <!-- 网站标题 -->
+    <title>@yield('title',config('watermelon.title'))</title>
 
     <link rel="stylesheet" href="{{ asset('/vendor/bootstrap-3.3.5/dist/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/vendor/font-awesome-4.5.0/css/font-awesome.min.css') }}">
@@ -81,7 +83,7 @@
     <div class="jqsb-sidebar jqsb-left">
         <div class="jqsb-left-sm">
             <ul class="sm-item-list">
-                <li class="personal-icon"><a href="#"><img src="/img/Monkey_D_Luffey.ico" alt="图标"></a></li>
+                <li class="personal-icon"><a href="#"><img src="{{ asset('favicon.png') }}" alt="图标"></a></li>
                 <li><a href="#" data-toggle="tooltip" data-trigger="hover" data-placement="right" title="文章" data-container=".sidebar-tooltip"><i class="glyphicon glyphicon-book"></i></a></li>
                 <li><a href="#" data-toggle="tooltip" data-placement="right" title="多媒体" data-container=".sidebar-tooltip"><i class="glyphicon glyphicon-film"></i></a></li>
                 <li><a href="#" data-toggle="tooltip" data-placement="right" title="评论" data-container=".sidebar-tooltip"><i class="glyphicon glyphicon-comment"></i></a></li>
