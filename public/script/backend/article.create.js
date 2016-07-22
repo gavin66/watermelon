@@ -10,7 +10,8 @@ var deps = [
     'jqueryWatermelon',
     'editormd-plugins/link-dialog/link-dialog-debug',
     'editormd-plugins/reference-link-dialog/reference-link-dialog-debug',
-    'editormd-plugins/image-dialog/image-dialog-debug',
+    //'editormd-plugins/image-dialog/image-dialog-debug',
+    'editormd-plugins/image-dialog/image-selection-dialog',
     'editormd-plugins/code-block-dialog/code-block-dialog-debug',
     'editormd-plugins/table-dialog/table-dialog-debug',
     'editormd-plugins/emoji-dialog/emoji-dialog-debug',
@@ -22,7 +23,7 @@ var deps = [
 ];
 
 seajs.use(deps, function($,_,editormd,toastr) {
-    seajs.use('/vendor/editor.md-1.5.0/css/editormd.min.css');
+    seajs.use('/vendor/editor.md-1.5.0/css/editormd.css');
     seajs.use('/vendor/toastr-2.1.2/build/toastr.min.css');
     seajs.use('/vendor/tagger-1.0.0/dist/tagger.min.css');
 

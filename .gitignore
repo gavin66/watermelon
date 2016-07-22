@@ -1,8 +1,9 @@
 /vendor
 /resources/node_modules
 /storage
-/public/upload/
+/public/files/
 _ide_helper.php
 .env
 .idea
 /resources/test
+.DS_Store

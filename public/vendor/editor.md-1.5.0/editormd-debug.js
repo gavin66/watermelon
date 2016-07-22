@@ -69,9 +69,10 @@
             "bold", "del", "italic", "quote", "ucwords", "uppercase", "lowercase", "|", 
             "h1", "h2", "h3", "h4", "h5", "h6", "|", 
             "list-ul", "list-ol", "hr", "|",
-            "link", "reference-link", "image", "code", "preformatted-text", "code-block", "table", "datetime", "emoji", "html-entities", "pagebreak", "|",
+            "link", "reference-link", "image-selection", "code", "preformatted-text", "code-block", "table", "datetime", "emoji", "html-entities", "pagebreak", "|",
             "goto-line", "watch", "preview", "fullscreen", "clear", "search", "|",
             "help", "info"
+            // "image", 上传图片功能并插入(原版插件,现已使用 image-selection 代替)
         ],
         simple : [
             "undo", "redo", "|", 
@@ -206,6 +207,7 @@
             link             : "fa-link",
             "reference-link" : "fa-anchor",
             image            : "fa-picture-o",
+            "image-selection": "fa-picture-o",
             code             : "fa-code",
             "preformatted-text" : "fa-file-code-o",
             "code-block"     : "fa-file-code-o",
@@ -223,7 +225,7 @@
             clear            : "fa-eraser",
             help             : "fa-question-circle",
             info             : "fa-info-circle"
-        },        
+        },
         toolbarIconTexts     : {},
         
         lang : {
@@ -252,6 +254,7 @@
                 link             : "链接",
                 "reference-link" : "引用链接",
                 image            : "添加图片",
+                "image-selection": "选择图片",
                 code             : "行内代码",
                 "preformatted-text" : "预格式文本 / 代码块（缩进风格）",
                 "code-block"     : "代码块（多语言风格）",
@@ -298,6 +301,16 @@
                     link     : "图片链接",
                     alt      : "图片描述",
                     uploadButton     : "本地上传",
+                    imageURLEmpty    : "错误：图片地址不能为空。",
+                    uploadFileEmpty  : "错误：上传的图片不能为空。",
+                    formatNotAllowed : "错误：只允许上传图片文件，允许上传的图片文件格式有："
+                },
+                imageSelection : {
+                    title    : "选取图片",
+                    url      : "图片地址",
+                    link     : "图片链接",
+                    alt      : "图片描述",
+                    uploadButton     : "媒体库",
                     imageURLEmpty    : "错误：图片地址不能为空。",
                     uploadFileEmpty  : "错误：上传的图片不能为空。",
                     formatNotAllowed : "错误：只允许上传图片文件，允许上传的图片文件格式有："
@@ -1359,6 +1372,78 @@
             
             return this;
         },
+
+        /**
+         * 创建图片选择对话框
+         *
+         * @returns {editormd}  返回editormd的实例对象
+         */
+        createImageChooseDialog : function(imageChooseDialogHTMLArrayBody,$assignFormElement) {
+            var _this        = this;
+            var editor       = this.editor;
+            var classPrefix  = this.classPrefix;
+
+            var imageChooseDialogHTMLArrayHead = [
+                "<div class=\"" + classPrefix + "dialog " + classPrefix + "dialog-image-choose\" style=\"\">",
+                "<div class=\"" + classPrefix + "dialog-container\">",
+                "<ul class=\"list-inline clear-margin\" id=\"file-list\">",
+            ].join("\n");
+
+            var imageChooseDialogHTMLArrayTail = [
+                "</ul>",
+                "</div>",
+                "<a href=\"javascript:void(0);\" class=\"fa fa-close " + classPrefix + "dialog-close\"></a>",
+                "</div>"
+            ];
+
+            var imageChooseDialogHTML = Array.prototype.concat(imageChooseDialogHTMLArrayHead,imageChooseDialogHTMLArrayBody,imageChooseDialogHTMLArrayTail).join("\n");
+
+
+            editor.append(imageChooseDialogHTML);
+
+            var imageChooseDialog  = this.imageChooseDialog = editor.children("." + classPrefix + "dialog-image-choose");
+
+            imageChooseDialog.find("." + classPrefix + "dialog-close").bind(editormd.mouseOrTouch("click", "touchend"), function() {
+                _this.hideImageChooseDialog();
+            });
+
+            imageChooseDialog.on(editormd.mouseOrTouch("click", "touchend"),'li.attachment img',function(){
+                $assignFormElement.find('input[name="imagePath"]').val($(this).attr('data-url'));
+                $assignFormElement.find('input[name="imageTitle"]').val($(this).attr('data-title'));
+
+
+                _this.hideImageChooseDialog();
+            });
+
+            imageChooseDialog.css("border", (editormd.isIE8) ? "1px solid #ddd" : "").css("z-index", editormd.dialogZindex).show();
+
+            this.imageChooseDialogPosition();
+
+            return this;
+        },
+
+        /**
+         * 图片选择对话居中定位
+         *
+         * @returns {editormd}  返回editormd的实例对象
+         */
+
+        imageChooseDialogPosition : function() {
+            var imageChooseDialog = this.imageChooseDialog;
+
+            var _imageChooseDialogPosition = function() {
+                imageChooseDialog.css({
+                    top  : ($(window).height() - imageChooseDialog.height()) / 2 + "px",
+                    left : ($(window).width()  - imageChooseDialog.width()) / 2  + "px"
+                });
+            };
+
+            _imageChooseDialogPosition();
+
+            $(window).resize(_imageChooseDialogPosition);
+
+            return this;
+        },
         
         /**
          * 显示关于Editor.md
@@ -1405,6 +1490,55 @@
         hideInfoDialog : function() {            
             $("html,body").css("overflow-x", "");
             this.infoDialog.hide();
+            this.mask.hide();
+            this.lockScreen(false);
+
+            return this;
+        },
+
+        /**
+         * 显示图片选择
+         *
+         *
+         * @returns {editormd}  返回editormd的实例对象
+         */
+        showImageChooseDialog : function(imageChooseDialogHTMLArray,$assignFormElement) {
+
+            $("html,body").css("overflow-x", "hidden");
+
+            var _this       = this;
+            var editor      = this.editor;
+            var settings    = this.settings;
+            var imageChooseDialog  = this.imageChooseDialog = editor.children("." + this.classPrefix + "dialog-image-choose");
+
+            if (imageChooseDialog.length < 1)
+            {
+                this.createImageChooseDialog(imageChooseDialogHTMLArray,$assignFormElement);
+            }
+
+            this.lockScreen(true);
+
+            this.mask.css({
+                opacity         : settings.dialogMaskOpacity,
+                backgroundColor : settings.dialogMaskBgColor
+            }).show();
+
+            imageChooseDialog.css("z-index", editormd.dialogZindex).show();
+
+            this.imageChooseDialogPosition();
+
+            return this;
+        },
+
+
+        /**
+         * 隐藏图片选择
+         *
+         * @returns {editormd}  返回editormd的实例对象
+         */
+        hideImageChooseDialog : function() {
+            $("html,body").css("overflow-x", "");
+            this.imageChooseDialog.hide();
             this.mask.hide();
             this.lockScreen(false);
 
@@ -3103,7 +3237,11 @@
         },
 
         image : function() {
-            this.executePlugin("imageDialog", "image-dialog/image-dialog");
+            this.executePlugin("imageDialog", "image-dialog/image-dialog-debug");
+        },
+
+        "image-selection" : function(){
+            this.executePlugin("imageSelectionDialog", "image-dialog/image-selection-dialog");
         },
         
         code : function() {
@@ -3179,6 +3317,7 @@
         info : function() {
             this.showInfoDialog();
         }
+
     };
     
     editormd.keyMaps = {

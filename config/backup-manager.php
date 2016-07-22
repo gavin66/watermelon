@@ -31,11 +31,11 @@ return [
     ],
     'dropbox' => [
         'type' => 'Dropbox',
-        'token' => 'FCdSYrsaJ_AAAAAAAAAAKuN2gpMTPWAyd4ZyxApgaAMy1w9yHUHHaFU9vxlYRIQD',
-        'key' => 'j3f3l7gkbo0helz',
-        'secret' => 'x1uxlccmgw9rvze',
-        'app' => 'watermelon-blog',
-        'root' => 'database-backup',
+        'token' => env('DROPBOX_TOKEN',''),
+        'key' => env('DROPBOX_KEY',''),
+        'secret' => env('DROPBOX_SECRET',''),
+        'app' => env('watermelon-blog',''),
+        'root' => env('database-backup',''),
 
     ],
     'ftp' => [

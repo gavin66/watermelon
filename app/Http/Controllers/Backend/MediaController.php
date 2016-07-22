@@ -29,26 +29,7 @@ class MediaController extends Controller {
         if ( Request::ajax() && array_key_exists('HTTP_X_PJAX', $_SERVER) && $_SERVER['HTTP_X_PJAX'] ) {
             return response()->view('backend.media', [ 'files' => File::all() ]);
         } else if ( Request::ajax() ) {
-            $search = Request::input('search', '');
-            $sort = Request::input('sort');
-            $order = Request::input('order');
-            $limit = Request::input('limit');
-            $offset = Request::input('offset');
 
-//			\DB::enableQueryLog();
-
-            $searcher = Category::whereRaw('1=1');
-            trim($search) != '' && $searcher->whereRaw('concat(name,desc) like \'%' . $search . '%\'');
-            $total = $searcher->count();
-            isset( $offset ) && isset( $limit ) && $searcher->skip($offset)->take($limit);
-            isset( $sort ) && isset( $order ) && $searcher->orderBy($sort, $order);
-            $data = $searcher->get();
-
-            return [
-                'total' => $total,
-                'rows'  => $data,
-//				'log'=>\DB::connection()->getQueryLog(),
-            ];
 
         }
 
@@ -72,7 +53,7 @@ class MediaController extends Controller {
     public function store() {
         //
         $this->uploadFiles(true,function($file){
-            $fileMode = File::create([
+            $fileModel = File::create([
                 'name' => $file->name,
                 'size' => $file->size,
                 'type' => $file->type,
@@ -80,8 +61,7 @@ class MediaController extends Controller {
                 'thumbnail_url' => $file->thumbnail_url,
                 'absolute_path' => $file->absolute_path,
             ]);
-            $file->id = $fileMode->id;
-            $file->zhens = 'zhenshide';
+            $file->id = $fileModel->id;
         });
 
     }

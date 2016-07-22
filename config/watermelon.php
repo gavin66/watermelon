@@ -10,19 +10,7 @@ return [
     // /var/www/github/watermelon/vendor/backup-manager/laravel/src/AutoComplete.php
 
 
-    'title'          => 'My Blog',
-    'posts_per_page' => 5,
-
-    'uploads' => [
-        'storage' => 'local',
-        'webpath' => '/uploads',
-    ],
-
-    'upload'                     => [
-        'image' => public_path('upload/image'),
-        'video' => public_path('upload/video'),
-        'audio' => public_path('upload/audio')
-    ],
+    'title'          => env('TITLE','My Blog'),
 
 
     /*
@@ -67,10 +55,10 @@ return [
     | 多说
     |--------------------------------------------------------------------------
     */
-    'ds_secret'                  => '2c4b0204f13941e02891f304f505ebbf', // 密钥
-    'ds_short_name'              => 'watermelon-api',
-    'ds_range'                   => 'monthly', //
-    'ds_num_items'               => 5,
+    'ds_secret'                  => env('DS_SECRET',''), // 密钥
+    'ds_short_name'              => env('DS_SHORT_NAME',''),
+    'ds_range'                   => env('DS_RANGE',''),
+    'ds_num_items'               => env('DS_NUM_ITEMS',''),
 
     /*
     |--------------------------------------------------------------------------

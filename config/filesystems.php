@@ -50,15 +50,15 @@ return [
 
         'upload_image' => [
             'driver' => 'local',
-            'root' => config('watermelon.upload.image')
+            'root' => config('watermelon.upload.image','')
         ],
         'upload_audio' => [
             'driver' => 'local',
-            'root' => config('watermelon.upload.audio')
+            'root' => config('watermelon.upload.audio','')
         ],
         'upload_video' => [
             'driver' => 'local',
-            'root' => config('watermelon.upload.video')
+            'root' => config('watermelon.upload.video','')
         ],
 
         'public' => [

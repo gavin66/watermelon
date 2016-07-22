@@ -13,6 +13,7 @@
     <meta name="description" content="这是田宇(Gavin)的个人网站">
     <!-- Laravel token 存放在 meta 标签中, 然后使用 jQuery 将它加入到所有的请求头中-->
     <meta name="csrf-token" content="{{ csrf_token()}}" />
+    {{--<link rel="shortcut icon" href="/favicon.ico">--}}
 
     <title>Gavin'blog</title>
 
@@ -108,7 +109,7 @@
                         </ul>
                     </div>
                 </li>
-                <li>
+                <li class="active">
                     <a class="item-link" href="#" aria-expanded="true">
                         <i class="glyphicon glyphicon-book" aria-hidden="true"></i>
                         <span class="">文章</span>
@@ -121,7 +122,7 @@
                         <li><a id="backend_tag" href="{{ url(config('watermelon.backend_tag')) }}" data-pjax="true">标签</a></li>
                     </ul>
                 </li>
-                <li class="active">
+                <li >
                     <a class="item-link" href="#" aria-expanded="false">
                         <i class="glyphicon glyphicon-film" aria-hidden="true"></i>
                         <span>多媒体</span>

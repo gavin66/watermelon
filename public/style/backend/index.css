@@ -460,7 +460,37 @@ a.cancelDefault:hover {
 .attachment {
   padding: 8px !important;
   float: left;
-  width: 12.5%;
+  width: 100%;
+}
+@media (min-width: 480px) {
+  .attachment {
+    width: 50%;
+  }
+}
+@media (min-width: 640px) {
+  .attachment {
+    width: 33.3333%;
+  }
+}
+@media (min-width: 768px) {
+  .attachment {
+    width: 25%;
+  }
+}
+@media (min-width: 1024px) {
+  .attachment {
+    width: 20%;
+  }
+}
+@media (min-width: 1280px) {
+  .attachment {
+    width: 16.666%;
+  }
+}
+@media (min-width: 1440px) {
+  .attachment {
+    width: 12.5%;
+  }
 }
 .attachment .attachment-preview {
   position: relative;

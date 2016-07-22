@@ -78,7 +78,12 @@ module.exports = function(grunt) {
         options:{
           livereload:true
         },
-        files: ['test/script/**','test/style/**','test/index.html']
+        //files: ['test/script/**','test/style/**','test/index.html'] // 当前测试
+        files: [
+                '/var/www/github/watermelon/public/vendor/editor.md-1.5.0/editormd-debug.js',
+                '/var/www/github/watermelon/public/vendor/editor.md-1.5.0/examples/simple.html',
+                '/var/www/github/watermelon/public/vendor/editor.md-1.5.0/plugins/image-dialog/image-choose-dialog.js'
+              ] // 测试 markdown 编辑器
       }
     },
 
@@ -88,7 +93,8 @@ module.exports = function(grunt) {
           protocol: 'http',
           hostname: '127.0.0.1',
           port: 9001,
-          base: 'test',
+          //base: 'test', // 当前测试
+          base: '/var/www/github/watermelon/public/vendor/editor.md-1.5.0', // 测试 markdown 编辑器
           keepalive: true,
           livereload:true
         }

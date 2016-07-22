@@ -14,7 +14,7 @@
     <!-- 在移动设备浏览器上，通过为视口（viewport）设置 meta 属性为 user-scalable=no 可以禁用其缩放（zooming）功能。
         这样禁用缩放功能后，用户只能滚动屏幕，就能让你的网站看上去更像原生应用的感觉。注意，这种方式不推荐所有网站使用，需看情况而定-->
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">-->
-    <link rel="shortcut icon" href="/img/Monkey_D_Luffey.ico">
+    {{--<link rel="shortcut icon" href="/favicon.ico">--}}
 
     <title>@yield('title','Gavin\' Blog')</title>
 
@@ -83,7 +83,7 @@
     </div>
 
     @section('background-particles')
-        <!-- 粒子背景 -->
+        <!-- 彩色背景 -->
         <canvas id="evanyou" width="2880" height="756"></canvas>
     @show
 

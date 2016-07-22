@@ -222,7 +222,7 @@ trait UploadTrait {
 
     protected function get_user_path() {
         if ($this->options['user_dirs']) {
-            return $this->get_user_id().'/';
+            return 'image/'.$this->get_user_id().'/';
         }
         return '';
     }

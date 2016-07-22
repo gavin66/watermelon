@@ -364,6 +364,26 @@
   display: inline-block;
 }
 
+.editormd-dialog-image-choose {
+  width: 640px;
+}
+.editormd-dialog-image-choose .editormd-dialog-container {
+  padding: 20px 25px 25px;
+  overflow: hidden;
+}
+.editormd-dialog-image-choose .editormd-dialog-container > ul{
+  overflow: auto;
+  max-height: 400px;
+}
+.editormd-dialog-image-choose .editormd-dialog-container li.attachment{
+  width: 25%;
+}
+
+.editormd-dialog-image-choose .editormd-dialog-close {
+  top: 10px;
+  right: 10px;
+}
+
 .editormd-mask,
 .editormd-container-mask,
 .editormd-dialog-mask {
