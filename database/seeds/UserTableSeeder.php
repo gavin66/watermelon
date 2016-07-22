@@ -8,6 +8,7 @@
  */
 use Illuminate\Database\Seeder;
 use App\Services\Registrar;
+use App\Model\User;
 
 class UserTableSeeder extends Seeder{
     public function run(){
@@ -19,7 +20,10 @@ class UserTableSeeder extends Seeder{
             'desc'=>'管理员'
         ];
 
-        $register = new Registrar();
-        $register->create($user_data);
+        if( User::where('email', 'admin@admin.com')->count() == 0 ){
+            $register = new Registrar();
+            $register->create($user_data);
+        }
+
     }
 }

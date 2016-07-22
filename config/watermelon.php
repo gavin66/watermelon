@@ -34,7 +34,7 @@ return [
     | 日志
     |--------------------------------------------------------------------------
     */
-    'schedule_log'               => '/var/www/github/logs', // 更新标签云 日志位置
+    'schedule_log'               => storage_path('logs/schedule.log'), // 更新标签云 日志位置
 
 
     /*
