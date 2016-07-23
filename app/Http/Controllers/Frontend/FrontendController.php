@@ -44,7 +44,7 @@ class FrontendController extends Controller {
 
     public function about() {
 
-        return response()->view('frontend.about', Article::find(2));
+        return response()->view('frontend.about', Article::find(1));
 
     }
 

@@ -41,10 +41,10 @@
                 <div class="sidebar-chunk profile box-shadow">
                     <table class="site-author">
                         <tr>
-                            <td><img class="img-rounded img-responsive" src="http://7xp2cl.com1.z0.glb.clouddn.com/portrait%20200x200.jpg" alt="头像"></td>
+                            <td><img class="img-rounded img-responsive" src="/img/head.jpg" alt="头像"></td>
                             <td>
                                 <div class="text-center">
-                                    <h4 class="author-name">田宇 (Gavin)</h4>
+                                    <h4 class="author-name">Gavin</h4>
                                     {{--<p>当你的才华还撑不起你的野心时，你就应该静下心来学习。</p>--}}
                                     <p class="motto">宁愿小众,不愿平庸</p>
                                 </div>
