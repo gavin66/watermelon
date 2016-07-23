@@ -12,10 +12,10 @@ class Kernel extends ConsoleKernel {
      * @var array
      */
     protected $commands = [
-         Commands\Inspire::class,
-//        Commands\CountTagCategory::class,
-//        Commands\DatabaseBackup::class,
-//        Commands\BuildRedisData::class,
+        Commands\Inspire::class,
+        Commands\CountTagCategory::class,
+        Commands\DatabaseBackup::class,
+        Commands\BuildRedisData::class,
     ];
 
     /**
@@ -26,35 +26,33 @@ class Kernel extends ConsoleKernel {
      * @return void
      */
     protected function schedule( Schedule $schedule ) {
-         $schedule->command('inspire')
-                  ->everyMinute()
-                  ->appendOutputTo(config('watermelon.schedule_log'));
-
-        // 更新标签的 redis 数据
-//        $schedule->command('watermelon:build-redis-data tags')
-//            ->hourly()
-//            ->withoutOverlapping()
-//            ->appendOutputTo(config('watermelon.schedule_log'));
-
-        // 更新分类的 redis 数据
-//        $schedule->command('watermelon:build-redis-data  categories')
-//            ->hourly()
-//            ->withoutOverlapping()
-//            ->appendOutputTo(config('watermelon.schedule_log'));
+//         $schedule->command('inspire')
+//                  ->everyMinute()
+//                  ->appendOutputTo(config('watermelon.schedule_log'));
 
         // 更新标签分类数量的 redis 数据
-//        $schedule->command('watermelon:count-tag-category')
-//            ->everyFiveMinutes()
-//            ->withoutOverlapping()
-//            ->appendOutputTo(config('watermelon.schedule_log'));
+        $schedule->command('watermelon:count-tag-category')
+            ->everyFiveMinutes()
+            ->withoutOverlapping()
+            ->appendOutputTo(config('watermelon.schedule_log'));
+
+        // 更新标签的 redis 数据
+        $schedule->command('watermelon:build-redis-data tags')
+            ->hourly()
+            ->withoutOverlapping()
+            ->appendOutputTo(config('watermelon.schedule_log'));
+
+        // 更新分类的 redis 数据
+        $schedule->command('watermelon:build-redis-data  categories')
+            ->hourly()
+            ->withoutOverlapping()
+            ->appendOutputTo(config('watermelon.schedule_log'));
 
         // 数据库备份
 //        $schedule->command('watermelon:database-backup')
 //            ->daily()
 //            ->withoutOverlapping()
 //            ->appendOutputTo(config('watermelon.schedule_log'));
-
-
 
     }
 }
