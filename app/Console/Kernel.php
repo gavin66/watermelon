@@ -14,7 +14,7 @@ class Kernel extends ConsoleKernel {
     protected $commands = [
 //         Commands\Inspire::class,
         Commands\CountTagCategory::class,
-        Commands\DatabaseBackup::class,
+//        Commands\DatabaseBackup::class,
         Commands\BuildRedisData::class,
     ];
 
