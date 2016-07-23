@@ -27,7 +27,8 @@ class Kernel extends ConsoleKernel {
      */
     protected function schedule( Schedule $schedule ) {
          $schedule->command('inspire')
-                  ->everyMinute();
+                  ->everyMinute()
+                  ->appendOutputTo(config('watermelon.schedule_log'));
 
         // 更新标签的 redis 数据
 //        $schedule->command('watermelon:build-redis-data tags')
