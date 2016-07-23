@@ -90,7 +90,7 @@ Route::group([ 'namespace' => 'Auth' ], function () {
         Route::get('logout', 'AuthController@logout');
 
         // 注册
-        Route::post('register', 'AuthController@register');
+//        Route::post('register', 'AuthController@register');
     });
 
     Route::group([ 'prefix' => 'password' ], function () {
