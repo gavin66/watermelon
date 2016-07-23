@@ -48,10 +48,10 @@ class Kernel extends ConsoleKernel {
             ->appendOutputTo(config('watermelon.schedule_log'));
 
         // 数据库备份
-        $schedule->command('watermelon:database-backup')
-            ->daily()
-            ->withoutOverlapping()
-            ->appendOutputTo(config('watermelon.schedule_log'));
+//        $schedule->command('watermelon:database-backup')
+//            ->daily()
+//            ->withoutOverlapping()
+//            ->appendOutputTo(config('watermelon.schedule_log'));
 
 
 
