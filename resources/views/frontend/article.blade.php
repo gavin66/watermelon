@@ -74,7 +74,9 @@
                 <!-- 多说分享 end -->
 
                 <!-- 多说评论框 start -->
-                <div class="ds-thread box-shadow" data-thread-key="{{ $article['id'] }}" data-title="{{ $article['title'] }}" data-url="{{ route('article',[ $article['id'] ]) }}"></div>
+                <div id="ds-comment-frame" class="ds-thread box-shadow" data-thread-key="{{ $article['id'] }}"
+                     data-title="{{ $article['title'] }}" data-url="{{ route('article',[ $article['id'] ]) }}"
+                     data-short-name="{{ config('watermelon.ds_short_name') }}"></div>
                 <!-- 多说评论框 end -->
 
             </div>

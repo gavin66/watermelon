@@ -56,7 +56,7 @@ return [
     |--------------------------------------------------------------------------
     */
     'ds_secret'                  => env('DS_SECRET',''), // 密钥
-    'ds_short_name'              => env('DS_SHORT_NAME',''),
+    'ds_short_name'              => env('DS_SHORT_NAME',''), // 多说二级域名
     'ds_range'                   => env('DS_RANGE',''),
     'ds_num_items'               => env('DS_NUM_ITEMS',''),
 

@@ -34,7 +34,9 @@
                 <!-- editor.md end-->
 
                 <!-- 多说评论框 start -->
-                <div class="ds-thread box-shadow" data-thread-key="{{ $id }}" data-title="{{ $title }}" data-url="/article/{{ $id }}"></div>
+                <div id="ds-comment-frame" class="ds-thread box-shadow" data-thread-key="{{ route('article',$id) }}"
+                     data-title="{{ $title }}" data-url="/article/{{ $id }}"
+                     data-short-name="{{ config('watermelon.ds_short_name') }}" ></div>
                 <!-- 多说评论框 end -->
             </section>
             <section class="col-md-4 hidden-xs hidden-sm">

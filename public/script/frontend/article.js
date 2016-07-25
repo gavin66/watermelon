@@ -4,7 +4,7 @@
 
 
 // 多说公共JS代码 start (一个网页只需插入一次)
-var duoshuoQuery = {short_name:"watermelon-api"};
+var duoshuoQuery = { short_name: document.getElementById('ds-comment-frame').attributes['data-short-name'].value };
 (function() {
     var ds = document.createElement('script');
     ds.type = 'text/javascript'; ds.async = true;
