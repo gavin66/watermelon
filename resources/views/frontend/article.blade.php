@@ -18,16 +18,18 @@
                     <h1 class="font-serif">{{ $article['title'] }}</h1>
                     <p><span class="invisible">空格</span>{{ $article['outline'] }}</p>
                     <div class="wm-category inline-block">
-                        <a href="" class="tag-piece tag-piece-LightPink">程序</a>
-                        <a href="" class="tag-piece tag-piece-sauce">生活</a>
-                        <a href="" class="tag-piece tag-piece-swarthy">人生</a>
+                        @if( !is_null($article['categories']) )
+                            @foreach(json_decode($article['categories'],1) as $category)
+                                @include(' layouts/tagger', [ 'key'=>'categories', 'item' => $category])
+                            @endforeach
+                        @endif
                     </div>
                     <div class="wm-tag inline-block">
-                        <a href="" class="tag-piece tag-piece-conifer">Javascript</a>
-                        <a href="" class="tag-piece tag-piece-RedGold">HTML</a>
-                        <a href="" class="tag-piece tag-piece-ultramarine">Node</a>
-                        <a href="" class="tag-piece tag-piece-ink">Node</a>
-                        <a href="" class="tag-piece tag-piece-amber">Node</a>
+                        @if(!is_null($article['tags']))
+                            @foreach(json_decode($article['tags'],1) as $tag)
+                                @include(' layouts/tagger', [ 'key' => 'tags', 'item' => $tag ])
+                            @endforeach
+                        @endif
                     </div>
                 </div>
             </div>

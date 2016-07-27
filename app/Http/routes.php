@@ -30,6 +30,12 @@
 //$this->post('password/reset', 'Auth\PasswordController@reset');
 
 //Route::get('/home', 'HomeController@index');
+Route::get('test',function(){
+    Artisan::call('watermelon:build-redis-data',['argument'=>'categories']);
+    Artisan::call('watermelon:build-redis-data',['argument'=>'tags']);
+
+    echo 'Yes';
+});
 
 /**
  * 前台部分

@@ -4,6 +4,7 @@ use App\Http\Controllers\Controller;
 
 use App\Model\Tag;
 use Request;
+use Artisan;
 
 class TagController extends Controller {
 
@@ -64,8 +65,11 @@ class TagController extends Controller {
 
 		$tag = new Tag();
 		$tag->fill($store_data);
+		$is = $tag->save();
 
-		return returnData($tag->save(),[],true);
+		Artisan::call('watermelon:build-redis-data',['argument'=>'tags']);
+
+		return returnData($is,[],true);
 	}
 
 	/**
@@ -110,6 +114,8 @@ class TagController extends Controller {
 	public function destroy($id)
 	{
 		$count = Tag::destroy($id);
+
+		Artisan::call('watermelon:build-redis-data',['argument'=>'tags']);
 
 		if ($count > 0) {
 			return returnData(true, [], true);

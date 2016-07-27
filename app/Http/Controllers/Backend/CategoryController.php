@@ -3,6 +3,7 @@
 use App\Http\Controllers\Controller;
 Use App\Model\Category;
 use Request;
+use Artisan;
 
 class CategoryController extends Controller {
 
@@ -58,10 +59,13 @@ class CategoryController extends Controller {
     public function store() {
         $store_data = Request::only([ 'name', 'desc' ]);
 
-        $tag = new Category();
-        $tag->fill($store_data);
+        $category = new Category();
+        $category->fill($store_data);
+        $is = $category->save();
 
-        return returnData($tag->save(), [ ], true);
+        Artisan::call('watermelon:build-redis-data',['argument'=>'categories']);
+
+        return returnData($is, [ ], true);
     }
 
     /**
@@ -108,6 +112,8 @@ class CategoryController extends Controller {
      */
     public function destroy( $id ) {
         $count = Category::destroy($id);
+
+        Artisan::call('watermelon:build-redis-data',['argument'=>'categories']);
 
         if ( $count > 0 ) {
             return returnData(true, [ ], true);
