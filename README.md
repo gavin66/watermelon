@@ -9,21 +9,22 @@
 
 ## 安装 watermelon
 1.把源码下载下来
-```bash
+```Shell
+mv a b
 clone git@github.com:gavin66/watermelon.git
 ```
 2.下载 laravel 依赖库
-```bash
+```Shell
 composer install
 ```
 3.修改配置文件,把文件 .env.example 重命名为 .env
-```bash
+```Shell
  mv .env.example .env 
 ```
 
 4.生成应用 key
 将应用的 key（APP_KEY）设置为一个随机字符串,如果应用 key 没有被设置，用户 Session 和其它加密数据将会有安全隐患。
-```bash
+```Shell
 php artisan key:generate
 ```
 5.修改目录权限
@@ -39,11 +40,11 @@ DB_USERNAME=homestead // 登录的用户名,
 DB_PASSWORD=secret // 密码
 ```
 8.数据库迁移
-```bash
+```Shell
 php artisan migrate // 生成表结构
 ```
 9.初始化数据库数据
-```bash
+```Shell
  php artisan db:seed
  ```
  10.评论功能
@@ -65,12 +66,12 @@ DROPBOX_APP=null // App folder name
 DROPBOX_ROOT=null // 上传文件的根目录
 ```
 
-```bash 
+```Shell 
 php artisan watermelon:database-backup // 命令行下云备份 Mysql 数据库,但需确保配置信息正确,网络畅通.
 ```
 12.开启 Linux 例行性工作调度(更新 Redis 数据)
 
-```bash
+```Shell
 crontab -e 
 // 添加以下一行,注意环境变量是否正确,php命令能否执行,目录自行修改
 * * * * *  php /watermelon/artisan schedule:run 1>> /dev/null 2>&1
