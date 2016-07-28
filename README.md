@@ -69,18 +69,17 @@ DROPBOX_ROOT=null // 上传文件的根目录
 php artisan watermelon:database-backup // 命令行下云备份 Mysql 数据库,但需确保配置信息正确,网络畅通.
 ```
 12.开启 Linux 例行性工作调度(更新 Redis 数据)
+
 ```bash
 crontab -e 
 // 添加以下一行,注意环境变量是否正确,php命令能否执行,目录自行修改
 * * * * *  php /watermelon/artisan schedule:run 1>> /dev/null 2>&1
 ```
 **至此安装完成**
+
+## 贡献
+此版本为测试版,Bug 不会少,请谨慎使用,此项目会持续维护下去,如有任何问题或提议请给我提交 Issues,谢谢.
  
- ## 贡献
- 此版本为测试版,Bug 不会少,请谨慎使用,此项目会持续维护下去,如有任何问题或提议请给我提交 Issues,谢谢.
- 
- ## Github 项目地址
- [watermelon](https://github.com/gavin66/watermelon)
- 
- 
+## Github 项目地址
+[watermelon](https://github.com/gavin66/watermelon) 
 
