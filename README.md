@@ -10,7 +10,6 @@
 ## 安装 watermelon
 1.把源码下载下来
 ```Shell
-mv a b
 clone git@github.com:gavin66/watermelon.git
 ```
 2.下载 laravel 依赖库
