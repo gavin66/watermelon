@@ -87,16 +87,16 @@
                 <div class="music-player box-shadow" style="margin-top: 25px;">
                     <div id="aPlayer" class="aplayer"></div>
                 </div>
-                <div class="sidebar-chunk article-hot box-shadow">
-                    <p class="sc-label inline-block">最热文章</p>
-                    <ul class="list-unstyled font-serif">
-                        @foreach($hotArticles as $article)
-                            <li><a href="{{ route('article',[ $article['thread_key'] ]) }}">{{ $article['title'] }}</a>
-                                <span class="comment">&nbsp;&nbsp;-&nbsp;&nbsp;{{ $article['comments'] }} 评论</span>
-                            </li>
-                        @endforeach
-                    </ul>
-                </div>
+                {{--<div class="sidebar-chunk article-hot box-shadow">--}}
+                    {{--<p class="sc-label inline-block">最热文章</p>--}}
+                    {{--<ul class="list-unstyled font-serif">--}}
+                        {{--@foreach($hotArticles as $article)--}}
+                            {{--<li><a href="{{ route('article',[ $article['thread_key'] ]) }}">{{ $article['title'] }}</a>--}}
+                                {{--<span class="comment">&nbsp;&nbsp;-&nbsp;&nbsp;{{ $article['comments'] }} 评论</span>--}}
+                            {{--</li>--}}
+                        {{--@endforeach--}}
+                    {{--</ul>--}}
+                {{--</div>--}}
                 <div class="box-shadow" id="markdown-toc">#custom-toc-container</div>
             </div>
         </div>
