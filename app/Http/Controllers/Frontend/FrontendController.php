@@ -3,6 +3,8 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Model\Category;
+use App\Model\User;
 use App\Services\DuoShuo;
 use Request;
 use Response;
@@ -26,7 +28,7 @@ class FrontendController extends Controller {
         trim($tags) != '' && $searcher->whereRaw('tags like \'%"' . $tags . '"%\'');
         trim($categories) != '' && $searcher->whereRaw('categories like \'%"' . $categories . '"%\'');
         isset( $sort ) && isset( $order ) && $searcher->orderBy($sort, $order);
-        $articles = $searcher->paginate(10);
+        $articles = $searcher->paginate(15);
 
 
         return Response::view('frontend.index', [ 'articles' => $articles, 'paginator_params' => [ 'tags' => $tags, 'categories' => $categories ] ]);
