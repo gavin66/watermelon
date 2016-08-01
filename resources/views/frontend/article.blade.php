@@ -55,7 +55,8 @@
                         {{--<span class="line"></span>--}}
                         <span class="text font-serif">分享到</span>
                     </div>
-                    <div class="ds-share share-button-c" data-thread-key="此处请替换为当前文章的thread-key" data-title="此处请替换为分享时显示的标题" data-images="此处请替换为分享时显示的图片的链接地址" data-content="此处请替换为分享时显示的内容" data-url="此处请替换为分享时显示的链接地址">
+                    <div class="ds-share share-button-c" data-thread-key="{{ $article['id'] }}" data-title="{{ $article['title'] }}"
+                         data-images="{{ asset('favicon.png') }}" data-content="{{ $article['outline'] }}" data-url="{{ url()->current() }}">
                         <a class="fa fa-weibo share-icon share-icon-weibo" title="新浪微博" data-service="weibo"></a>
                         <a class="fa fa-tencent-weibo share-icon share-icon-tweibo" title="腾讯微博" data-service="qqt"></a>
                         <a class="fa fa-weixin share-icon share-icon-weixin" title="微信" data-service="wechat"></a>
