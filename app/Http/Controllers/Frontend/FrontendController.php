@@ -24,7 +24,7 @@ class FrontendController extends Controller {
         $sort = Request::input('sort', 'created_at');
         $order = Request::input('order', 'desc');
 
-        $searcher = Article::whereRaw('1=1');
+        $searcher = Article::where('status','发布');
         trim($tags) != '' && $searcher->whereRaw('tags like \'%"' . $tags . '"%\'');
         trim($categories) != '' && $searcher->whereRaw('categories like \'%"' . $categories . '"%\'');
         isset( $sort ) && isset( $order ) && $searcher->orderBy($sort, $order);

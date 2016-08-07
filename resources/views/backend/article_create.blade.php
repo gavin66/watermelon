@@ -37,9 +37,9 @@
                         <ul class="list-group collapse in" id="release-toggle">
                             <li class="list-group-item">保存草稿
                                 <select title="状态" class="form-control" name="status" >
-                                    <option>草稿</option> {{-- selected disabled value --}}
-                                    <option>预览</option>
-                                    <option>发布</option>
+                                    <option {{ $article['status']=='草稿' ? 'selected':'' }}>草稿</option> {{-- selected disabled value --}}
+                                    <option {{ $article['status']=='预览' ? 'selected':'' }}>预览</option>
+                                    <option {{ $article['status']=='发布' ? 'selected':'' }}>发布</option>
                                 </select>
                             </li>
                             <li class="list-group-item">状态:草稿 编辑</li>
